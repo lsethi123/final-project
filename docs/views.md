@@ -1,26 +1,26 @@
 # View Wireframes
 
-## New Session
-![new-session]
+## Home/search
+![destination-show]
 
-## Feed Show (landing page)
-![feed-show]
+## Destination show
+![destination-show]
 
-## Blog Show
-![blog-show]
+## Tour show
+![tour-show]
 
-## Post Show
-![post-show]
+## Profile View
+![post-view]
 
-## Post Form
-![post-form]
+## Reservations
+![reservations]
 
-## Search Results
-![search-results]
+## Past Tours
+![past-tours]
 
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[home]: ./wireframes/home.html.
+[destination-show]: ./wireframes/destination-show.html
+[tour-show]: ./wireframes/tour-show.html
+[profile-view]: ./wireframes/profile-view.html
+[reservations]: ./wireframes/my_reservations.html
+[past-tours]: ./wireframes/past_tours.html
