@@ -1,7 +1,7 @@
 # View Wireframes
 
 ## Home/search
-![destination-show]
+![home]
 
 ## Destination show
 ![destination-show]
@@ -10,7 +10,7 @@
 ![tour-show]
 
 ## Profile View
-![post-view]
+![profile-view]
 
 ## Reservations
 ![reservations]
@@ -19,8 +19,8 @@
 ![past-tours]
 
 [home]: ./wireframes/home.tiff
-[destination-show]: ./wireframes/destination-show.tiff
-[tour-show]: ./wireframes/tour-show.tiff
-[profile-view]: ./wireframes/profile-view.tiff
-[reservations]: ./wireframes/my_reservations.tiff
-[past-tours]: ./wireframes/past_tours.tiff
+[destination-show]: ./wireframes/destination_show.png
+[tour-show]: ./wireframes/tour_show.png
+[profile-view]: ./wireframes/profile_view.png
+[reservations]: ./wireframes/my_reservations.png
+[past-tours]: ./wireframes/past_tours.png
