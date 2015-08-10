@@ -1,4 +1,4 @@
-# Flux-capacitr
+# Tryable
 
 [Heroku link][heroku]
 

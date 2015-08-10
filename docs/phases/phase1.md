@@ -1,14 +1,4 @@
 # Phase 1: Tour search and display - A (~1-2 days)
-User Story:
-Users can search for locations, app displays list of tours for that location.
-Users select a tour, app displays more information.
-
-I will implement the tour and location model in both Rails and Backbone. Rails will have a basic
-CRUD API that serves tour data under an API namespace.
-The homepage will have a dynamic search for locations.
-I will create a Backbone composite view for each location, with subviews for all the tours.
-
-[Details][phase-one]
 
 ## Rails
 ### Models
