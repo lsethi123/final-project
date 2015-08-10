@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: http://travellama.herokuapp.com
 
 ## Minimum Viable Product
 It is a peer-to-peer tour booking site that allows people to find off-the-beaten track

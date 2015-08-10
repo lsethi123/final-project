@@ -18,9 +18,9 @@
 ## Past Tours
 ![past-tours]
 
-[home]: ./wireframes/home.html.
-[destination-show]: ./wireframes/destination-show.html
-[tour-show]: ./wireframes/tour-show.html
-[profile-view]: ./wireframes/profile-view.html
-[reservations]: ./wireframes/my_reservations.html
-[past-tours]: ./wireframes/past_tours.html
+[home]: ./wireframes/home.tiff
+[destination-show]: ./wireframes/destination-show.tiff
+[tour-show]: ./wireframes/tour-show.tiff
+[profile-view]: ./wireframes/profile-view.tiff
+[reservations]: ./wireframes/my_reservations.tiff
+[past-tours]: ./wireframes/past_tours.tiff
