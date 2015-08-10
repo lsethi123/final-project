@@ -18,7 +18,7 @@
 ## Past Tours
 ![past-tours]
 
-[home]: ./wireframes/home.tiff
+[home]: ./wireframes/home.png
 [destination-show]: ./wireframes/destination_show.png
 [tour-show]: ./wireframes/tour_show.png
 [profile-view]: ./wireframes/profile_view.png
