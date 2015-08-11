@@ -1,4 +1,4 @@
-VayableClone.Views.DestinationsIndex = Backbone.View.extend({
+Tryable.Views.DestinationsIndex = Backbone.View.extend({
 
   template: JST['destinations/index']
 

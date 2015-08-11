@@ -1,3 +1,3 @@
-VayableClone.Routers.Destinations = Backbone.Router.extend({
+Tryable.Routers.Destinations = Backbone.Router.extend({
 
 });

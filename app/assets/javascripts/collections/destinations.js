@@ -1,5 +1,5 @@
-VayableClone.Collections.Destinations = Backbone.Collection.extend({
-
-  model: VayableClone.Models.Destination
+Tryable.Collections.Destinations = Backbone.Collection.extend({
+  url: 'api/destinations',
+  model: Tryable.Models.Destination
 
 });

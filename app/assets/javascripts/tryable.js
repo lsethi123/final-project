@@ -1,4 +1,4 @@
-window.VayableClone = {
+window.Tryable = {
   Models: {},
   Collections: {},
   Views: {},
@@ -8,5 +8,5 @@ window.VayableClone = {
 };
 
 $(document).ready(function(){
-  VayableClone.initialize();
+  Tryable.initialize();
 });
