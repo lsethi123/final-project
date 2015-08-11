@@ -1,8 +1,8 @@
-# Phase 1: Tour search and display - A (~1-2 days)
+# Phase 1: Tour search and display - A (~1 day)
 
 ## Rails
 ### Models
-* Location
+* Destination
 * Tour
 
 ### Controllers

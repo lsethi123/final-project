@@ -1,4 +1,4 @@
-# Phase 3: User signup, login and bookings (1-2 days)
+# Phase 3: User signup, login and bookings (1 day)
 
 ## Rails
 ### Models

@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://travellama.herokuapp.com
+[heroku]: http://tryable.herokuapp.com
 
 ## Minimum Viable Product
 It is a peer-to-peer tour booking site that allows people to find off-the-beaten track
@@ -16,6 +16,7 @@ Backbone on Rails, with Bootstrap and custom CSS for styling.
 - [ ] Search for destinations
 - [ ] View destinations and tours
 - [ ] Book and cancel tours
+- [ ] Review tours
 
 ## Design Docs
 * [View Wireframes][views]
@@ -62,16 +63,23 @@ I will seed the database with demo users and tours, some of the demo user's tour
 already be confirmed (step after requested) for demo purposes.
 [Details][phase-three]
 
-### Phase 4: Tours belong to providers (2 days)
+### Phase 4: Tours belong to providers (1 day)
 User story - Users see the tour provider during search.
 
 I will use the same user model to implement a tour provider class.
 At first, tour operator's won't be able
 to sign up - they will simply be displayed on the tour show page, with more information
 accessible on their provider show page.
+[Details][phase-four]
+
+### Phase 5: User reviews (1 day)
+User story - Users leave a numerical feedback and text review for their past tours.
+
+I will implement a review class which has the feedback, rating, and belongs to both a
+tour and a user.
 [Details][phase-five]
 
-### Phase 5: Pagination, cleanup and deployment (2 days)
+### Phase 6: Pagination, cleanup and deployment (2 days)
 I will finish formatting the app with CSS/Bootstrap (in progress the whole way), a Pagination
 gem, and implement a demo login, and deployment recommendations:
  -Seed database
@@ -79,18 +87,20 @@ gem, and implement a demo login, and deployment recommendations:
 -avoid app shutting down on Heroku(Pingdom or New Relic)
 -new domain name
 
- [Details][phase-four]
+ [Details][phase-six]
 
-### Bonus Features (TBD, in order of priority)
-- [ ] Tour provider login which allows them to signup, create tours, and approve bookings
-- [ ] Google maps integration (destination show and tour show pages have googlemaps)
-- [ ] Tour ratings and reviews
-- [ ] Tour activity tags and taggings (i.e. outdoors, culinary, history to filter results)
-- [ ] Social media integration (like tours on Facebook)
-- [ ] Email notifications upon signup, successful booking, booking cancellation
+ ### Bonus Features: (TBD, in order of priority)
+
+ Tour provider login which allows them to signup, create tours, and approve bookings
+ Google maps integration (destination show and tour show pages have googlemaps)
+ Tour activity tags and taggings (i.e. outdoors, culinary, history to filter results)
+ Social media integration (like tours on Facebook)
+ Email notifications upon signup, successful booking, booking cancellation
+
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
+[phase-six]: ./docs/phases/phase6.md

@@ -1,4 +1,4 @@
-### Phase 4: Tours belong to providers (1 day)
+### Phase 4: Tours belong to providers (1 days)
 
 ## Rails
 ### Models

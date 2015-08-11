@@ -21,6 +21,5 @@
 * Tour (modify to show Photos)
 
 ## Gems/Libraries
-* Paperclip
-* Imagemagick
+* Paperclip/Imagemagick (or Cloudinary TBD)
 * AWS

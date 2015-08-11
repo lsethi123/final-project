@@ -1,12 +1,19 @@
 # Schema Information
 
-## tours
+## destination
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-provider_id | integer   | not null, foreign key (references users)
-title       | string    | not null
-description | text      |
+name        | string    | not null
+
+## tours
+column name | data type | details
+------------|-----------|-----------------------
+id              | integer   | not null, primary key
+destination_id  | integer   | not null
+provider_id     | integer   | not null, foreign key (references users)
+title           | string    | not null
+description     | text      |
 
 
 ## bookings
@@ -46,6 +53,7 @@ about           | text      |
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
+description | text      |
 rating      | integer   | not null
 tour_id     | integer   | not null, foreign key (references tours)
 user_id     | integer   | not null, foreign key (references users)
