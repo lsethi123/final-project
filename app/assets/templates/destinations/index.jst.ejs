@@ -1,0 +1,7 @@
+<h4>Where are you going?</h4>
+<input type="text" class='search-box' name="destination[name]" value="">
+<% places.each( function (place) { %>
+  <li><a href="#/destinations/<%= place.get('id')%>">
+    <%= place.escape('name')%>
+  </a></li>
+<%  }) %>

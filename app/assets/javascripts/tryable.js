@@ -4,6 +4,8 @@ window.Tryable = {
   Views: {},
   Routers: {},
   initialize: function() {
+    new Tryable.Routers.Router({$rootEl: $('.container')});
+    Backbone.history.start();
   }
 };
 
