@@ -29,6 +29,9 @@ gem 'faker'
 
 # Annotate the models
 gem 'annotate'
+
+# Use Backbone
+gem 'backbone-on-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
