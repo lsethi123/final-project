@@ -1,4 +1,4 @@
-# Phase 2: Tour search and display with Photos ( ~1 day)
+# Phase 2: Tour search and display with Photos ( ~1 day )
 
 ## Rails
 ### Models

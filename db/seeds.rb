@@ -5,3 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+cities = ["San Francisco", "New York", "Los Angeles", "Chicago"]
+
+cities.each do |city|
+  Destination.create(name: city)
+end
+
+sf = Destination.first
+tours = ["Walking Tour of Chinatown",
+          "Sourdough bread workshop",
+          "Biking the Mission"]
+tours.each do |tour|
+  sf.tours.create(
+    title: tour,
+    description: Faker::Lorem.paragraphs(2)
+  )
+end
