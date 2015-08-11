@@ -2,7 +2,8 @@ Tryable.Routers.Router= Backbone.Router.extend({
 
   routes: {
     '' : 'index',
-    'destinations/:id' : 'show'
+    'destinations/:id' : 'showDestination',
+    'tours/:id' :'showTour'
   },
 
   initialize: function(options){
@@ -17,10 +18,17 @@ Tryable.Routers.Router= Backbone.Router.extend({
     this._swapViews(view);
   },
 
-  show: function (id){
+  showDestination: function (id){
     var model = this.collection.getOrFetch(id);
     var tours = model.tours();
     var view = new Tryable.Views.DestinationShow({ model: model, collection: tours});
+    this._swapViews(view);
+  },
+
+  showTour: function (id){
+    var model = new Tryable.Models.Tour({id: id});
+    model.fetch();
+    var view = new Tryable.Views.TourShow({ model: model });
     this._swapViews(view);
   },
 

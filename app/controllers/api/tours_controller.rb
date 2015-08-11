@@ -1,11 +1,8 @@
 class Api::ToursController < ApplicationController
-  
-  def create
 
-  end
-
-  def destroy
-
+  def show
+    @tour = Tour.find(params[:id])
+    render :show
   end
 
 end

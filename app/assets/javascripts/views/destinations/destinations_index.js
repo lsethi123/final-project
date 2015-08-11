@@ -1,24 +1,26 @@
-Tryable.Views.DestinationsIndex = Backbone.View.extend({
+Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
 
   template: JST['destinations/index'],
-
   events: {
-    'input .search-box' : 'updateResults'
+    'input .search-box' : 'handleInput'
   },
 
   initialize: function (){
-    this.listenTo(this.collection, "sync", this.render );
+    this.subview = new Tryable.Views.SearchResults({collection: this.collection});
   },
 
   render: function (){
-    var content = this.template( {places: this.collection } );
+    var content = this.template();
     this.$el.html(content);
+    this.$el.append(this.subview.render().$el)
     return this;
   },
 
-  updateResults: function(e){
-    // var searchString = $(e.currentTarget).val();
-    // this.collection = _.where(this.collection, {name})
+  handleInput: function(e){
+    var query = $(e.currentTarget).val();
+    this.collection.fetch({
+      data: { query: query }
+    });
   }
 
 });

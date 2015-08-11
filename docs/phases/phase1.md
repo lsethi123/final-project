@@ -23,7 +23,7 @@
 * Tours
 
 ### Views
-* Home (contains a search subView)
+* Home/Index (contains a search subView)
 * Search - a searchbox that dynamically updates while you type (used in both home and headerbar))
 * Destination (compositeView of many TourSubViews)
 * TourSubView (snippet of Tour used by DestinationShow)

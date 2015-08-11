@@ -19,6 +19,6 @@ tours = ["Walking Tour of Chinatown",
 tours.each do |tour|
   sf.tours.create(
     title: tour,
-    description: Faker::Lorem.paragraphs(2)
+    description: Faker::Lorem.paragraph
   )
 end
