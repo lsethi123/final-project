@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :tours, only: [:show]
     # get 'destinations/search' => 'destination#search'
   end
-  
+
 end

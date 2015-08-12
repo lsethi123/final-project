@@ -1,1 +1,1 @@
-json.extract! @tour, :id, :title, :description
+json.extract! @tour, :id, :title, :description, :destination_id
