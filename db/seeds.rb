@@ -13,12 +13,13 @@ cities.each do |city|
 end
 
 sf = Destination.first
-tours = ["Walking Tour of Chinatown",
+sf_tours = ["Walking Tour of Chinatown",
           "Sourdough bread workshop",
           "Biking the Mission",
           "Foraging food tour",
-          "Walk Lands End"]
-tours.each do |tour|
+          "Walk Lands End",
+          "Picnic in Dolores Park"]
+sf_tours.each do |tour|
   sf.tours.create(
     title: tour,
     description: Faker::Lorem.paragraph

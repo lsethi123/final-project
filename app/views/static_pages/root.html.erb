@@ -1,5 +1,17 @@
 <div class="nav-show">
 </div>
 
-<div class="container col-md-9 col-md-offset-3">
+<div class="root-div col-md-9 col-md-offset-3">
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+      Tryable.initialize();
+  });
+
+  <% if logged_in? %>
+    Tryable.CURRENT_USER = {username: "<%=current_user.username%>", id: <%=current_user.id%> };
+    Tryable.AUTH_TOKEN = "<%=form_authenticity_token%>"
+  <% end %>
+
+</script>

@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
     self.session_token = generate_session_token
     self.save!
   end
+
+  def to_json
+    "{'username:' #{self.username}, 'id:' #{self.id} }"
+  end
 end
