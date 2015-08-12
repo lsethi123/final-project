@@ -6,12 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-cities = ["San Francisco", "New York", "Los Angeles", "Chicago"]
+#USERS
+usernames = %w(lisa joe demo)
+usernames.each do |username|
+  User.create(username: username, password: "password")
+end
 
+#DESTINATIONS
+cities = ["San Francisco", "New York", "Los Angeles", "Chicago"]
 cities.each do |city|
   Destination.create(name: city)
 end
 
+#TOURS
 sf = Destination.first
 sf_tours = ["Walking Tour of Chinatown",
           "Sourdough bread workshop",
@@ -24,4 +31,16 @@ sf_tours.each do |tour|
     title: tour,
     description: Faker::Lorem.paragraph
   )
+end
+
+#BOOKINGS (Lisa and demo are booked on all tours)
+users = [User.first, User.last]
+Tour.all.each do |tour|
+  time = Time.now + rand(30).days
+  users.each do |user|
+    Booking.create(tour_id: tour.id,
+      user_id: user.id,
+      tour_date: time,
+      status: "requested")
+  end
 end

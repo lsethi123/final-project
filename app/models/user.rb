@@ -1,6 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string
+#  password_digest :string
+#  session_token   :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ActiveRecord::Base
   validates :username, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true}
+  has_many :bookings
+
   after_initialize :ensure_session_token
   attr_reader :password
 

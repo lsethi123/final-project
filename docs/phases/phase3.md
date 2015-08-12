@@ -8,7 +8,7 @@
 ### Controllers
 * UsersController (new, create)
 * SessionsController (new, create, destroy)
-* API::BookingsController (create, update) (update will be used to approve and cancel)
+* API::BookingsController (create, update, index) (update will be used to approve and cancel)
 * API::UsersController (show)
 
 ### Views

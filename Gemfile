@@ -32,6 +32,9 @@ gem 'bootstrap-sass'
 # Annotate the models
 gem 'annotate'
 
+# Serialize form data
+gem 'serialize_json-rails'
+
 # Use Backbone
 gem 'backbone-on-rails'
 # Use Unicorn as the app server
@@ -41,6 +44,8 @@ gem 'backbone-on-rails'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  #Use pry for console
+  gem 'pry-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
