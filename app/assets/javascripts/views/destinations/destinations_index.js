@@ -2,18 +2,25 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
 
   template: JST['destinations/index'],
   events: {
-    'input .search-box' : 'handleInput'
+    'input .search-box' : 'handleInput',
+    'click .search-name' : 'hideResults'
   },
 
   initialize: function (){
-    this.subview = new Tryable.Views.SearchResults({collection: this.collection});
+    this.addSearchView();
+    this.collection.fetch();
   },
 
   render: function (){
     var content = this.template();
     this.$el.html(content);
-    this.$el.append(this.subview.render().$el)
+    this.attachSubviews();
     return this;
+  },
+
+  addSearchView: function (){
+    var subview = new Tryable.Views.SearchResults({collection: this.collection});
+    this.addSubview('.search-results', subview);
   },
 
   handleInput: function(e){
@@ -21,6 +28,10 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
     this.collection.fetch({
       data: { query: query }
     });
+  },
+
+  hideResults: function() {
+    this.$('.input').empty();
   }
 
 });

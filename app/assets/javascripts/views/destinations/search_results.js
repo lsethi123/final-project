@@ -10,7 +10,6 @@ Tryable.Views.SearchResults = Backbone.View.extend({
     var content = this.template( {places: this.collection } );
     this.$el.html(content);
     return this;
-  },
-
+  }
 
 });

@@ -8,8 +8,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
 
   initialize: function(options){
     this.$rootEl = options.$rootEl;
-    this.collection = new Tryable.Collections.Destinations();
-    this.collection.fetch();
+    this.collection = options.places;
   },
 
   index: function() {

@@ -1,6 +1,7 @@
-<h1> Subview! </h1>
-<ul class='search-results'>
-<% places.each( function(place) { %>
-  <li><%=place.escape('name')%></li>
-<%  }) %>
-</ul>
+<!-- <div class='search-results'> -->
+  <% places.each( function(place) { %>
+    <a href="#/destinations/<%=place.escape('id')%>">
+      <div class='search-name'><%=place.escape('name')%></div>
+    </a>
+  <%  }) %>
+<!-- </div> -->

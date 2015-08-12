@@ -27,6 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Generate seed data randomly
 gem 'faker'
 
+#Use grid layout
+gem 'bootstrap-sass'
 # Annotate the models
 gem 'annotate'
 

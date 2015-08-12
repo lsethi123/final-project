@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background-color: lightgray;
+}
+
+.search-results {
+  position: absolute;
+  background: white;
+}
+
+.search-name {
+  padding: 5px;
+}
+
+.tour-item {
+  height: 300px;
+  width: 200px;
+  border-radius: 5%;
+  overflow:hidden;
+  background-color: white;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+}
+
+.tour-title {
+  font-size: 14px;
+}
+
+.search-box {
+  margin: auto;
+}
