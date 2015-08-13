@@ -1,7 +1,17 @@
 class Api::BookingsController < ApplicationController
+  # before_action :ensure_logged_in, only: [:create, :update]
+
+  def show
+    @booking = Booking.find(params[:id])
+    render :show
+  end
 
   def index
-    @bookings = current_user.bookings.joins({:tour =>:destination})
+    if logged_in?
+      @bookings = current_user.bookings.joins({:tour =>:destination})
+    else
+      @bookings = []
+    end
     render :index
     # render json: @bookings
   end

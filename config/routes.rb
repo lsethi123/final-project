@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :destinations, only: [:show, :index]
     resources :tours, only: [:show]
-    resources :bookings, only: [:create, :update, :index]
+    resources :bookings, only: [:create, :update, :index, :show]
     # get 'destinations/search' => 'destination#search'
   end
 

@@ -30,6 +30,8 @@ Tryable.Views.BookingForm = Backbone.View.extend({
     booking.set('tour_date', this.$('.date-picker').datepicker('getDate'));
     booking.save({},
       { success: function (){
+        booking.fetch();
+        this.collection.add(booking);
         Backbone.history.navigate('#/bookings');
       }.bind(this),
         error: function (response){

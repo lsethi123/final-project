@@ -12,7 +12,7 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
   },
 
   render: function (){
-    var content = this.template();
+    var content = this.template({places: this.collection});
     this.$el.html(content);
     this.attachSubviews();
     return this;
@@ -29,7 +29,7 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
       data: { query: query }
     });
   },
-  // 
+  //
   // hideResults: function() {
   //   this.$('.input').empty();
   // }

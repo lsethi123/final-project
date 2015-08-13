@@ -15,7 +15,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
   },
 
   addBookingView: function(){
-    var subview = new Tryable.Views.BookingForm({ model: this.model });
+    var subview = new Tryable.Views.BookingForm({ model: this.model, collection: this.collection });
     this.addSubview('.booking-form', subview);
   },
 
