@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    puts "New session called"
     @user=User.new
     render :new
   end

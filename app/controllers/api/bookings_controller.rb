@@ -1,5 +1,5 @@
 class Api::BookingsController < ApplicationController
-  # before_action :ensure_logged_in, only: [:create, :update]
+  before_action :ensure_logged_in, only: [:create, :update]
 
   def show
     @booking = Booking.find(params[:id])
@@ -27,20 +27,9 @@ class Api::BookingsController < ApplicationController
     end
   end
 
-  def cancel
-    booking = Booking.find(id: params[:id])
-    booking.status = "cancelled"
-    if booking.save
-      render json: booking
-    else
-      render json: booking.errors.full_messages, status: :unprocessable_entity
-    end
-
-  end
-
   def update
     booking = Booking.find(params[:id])
-    if booking.update(booking_params)
+    if (booking_params[:status] == "cancelled") && booking.update(booking_params)
       render json: booking
     else
       render json: booking.errors.full_messages, status: :unprocessable_entity

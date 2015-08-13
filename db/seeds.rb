@@ -41,6 +41,6 @@ Tour.all.each do |tour|
     Booking.create(tour_id: tour.id,
       user_id: user.id,
       tour_date: time,
-      status: "requested")
+      status: ["requested", "confirmed", "cancelled"].sample )
   end
 end

@@ -25,17 +25,20 @@ Tryable.Views.BookingForm = Backbone.View.extend({
 
   submitBooking: function(e){
     e.preventDefault();
+
     var formData = this.$el.serializeJSON();
     var booking = new Tryable.Models.Booking(formData.booking);
     booking.set('tour_date', this.$('.date-picker').datepicker('getDate'));
-    booking.save({},
-      { success: function (){
+    booking.save({}, {
+      success: function (){
         booking.fetch();
         this.collection.add(booking);
-        Backbone.history.navigate('#/bookings');
+        Backbone.history.navigate('#/bookings', { trigger: true });
       }.bind(this),
-        error: function (response){
-          debugger;
+      error: function (response){
+          console.log("Error callback called");
+          window.location.replace('/session/new');
+          // Backbone.history.navigate('session/new', {trigger: true} );
         }
      } );
   }

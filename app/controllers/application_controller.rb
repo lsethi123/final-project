@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   def ensure_logged_in
     unless logged_in?
       flash[:errors]=["Must be logged in"]
-      redirect_to new_session_url
+      render json: {message: "Not logged in"}, status: 401
     end
   end
 
