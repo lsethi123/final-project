@@ -1,12 +1,6 @@
-<input type="hidden" name="_method" value="post">
+<input type="hidden" name="booking[tour_id]" value="<%= tour.escape('id')%>">
 <div class = 'date-picker'></div>
-<input type="hidden" name="booking[tour_id]" value="<% tour.escape('id') %>">
 <button type="button btn-primary" class='submit-booking'>Request Booking</button>
 
-<script type="text/javascript">
-  $('.date-picker').datepicker({
-  startDate: "Time.now",
-  clearBtn: true,
-  todayHighlight: true
-  });
-</script>
+<h4>Debugging, the value of the tour id is:</h4>
+<%= tour.escape('id')%>
