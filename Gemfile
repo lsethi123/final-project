@@ -40,6 +40,12 @@ gem 'backbone-on-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+# File upload
+gem 'cloudinary'
+
+#API key management
+gem 'figaro'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

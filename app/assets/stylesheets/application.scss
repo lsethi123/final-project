@@ -16,6 +16,17 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+.jumbotron {
+  background-image: url('/assets/backdrop.jpeg');
+  text-align: center;
+  color: white;
+}
+
+.search {
+  display: block;
+  margin: auto;
+  width: 400px;
+}
 
 body {
   background-color: lightgray;

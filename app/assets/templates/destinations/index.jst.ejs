@@ -1,13 +1,12 @@
-<div class="search-box col-md-4 col-md-offset-4">
-  <h4>Where are you going?</h4>
-  <input type="text"
-    class='search-box'
-    name="destination[name]">
-  <div class="search-results">
+<div class="jumbotron">
+  <h1>Explore like a local</h1>
+  <p>...</p>
+  <div class="search">
+    <input type="text"
+      class='search-box'
+      name="destination[name]">
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Search</a></p>
+    <div class="search-results"></div>
   </div>
-  <% places.each( function(place){ %>
-    <a href="#/destinations/<%=place.escape('id')%>">
-      <%=place.escape('name')%>
-    </a>
-  <%  }) %>
+
 </div>

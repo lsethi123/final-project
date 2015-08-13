@@ -18,6 +18,12 @@ cities.each do |city|
   Destination.create(name: city)
 end
 
+#Images
+image_urls = [
+  "https://aarynvaughan.files.wordpress.com/2014/06/sf-trolley2-634x350.jpg",
+
+]
+
 #TOURS
 sf = Destination.first
 sf_tours = ["Walking Tour of Chinatown",
@@ -29,7 +35,9 @@ sf_tours = ["Walking Tour of Chinatown",
 sf_tours.each do |tour|
   sf.tours.create(
     title: tour,
-    description: Faker::Lorem.paragraph
+    description: Faker::Lorem.paragraph,
+    user_id: 1,
+    price: [50, 100, 150, 129, 200].sample
   )
 end
 
