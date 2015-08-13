@@ -3,6 +3,10 @@ Tryable.Views.BookingsIndexItem = Backbone.View.extend({
   template: JST['bookings/index_item'],
   tagName: 'tr',
 
+  events: {
+    'click .cancel-btn' : 'cancel'
+  },
+
   initialize: function (){
     this.listenTo(this.model, "sync", this.render );
   },
@@ -11,6 +15,23 @@ Tryable.Views.BookingsIndexItem = Backbone.View.extend({
     var content = this.template( {booking: this.model});
     this.$el.html(content);
     return this;
+  },
+
+  cancel: function(e){
+    e.preventDefault();
+    var r = confirm('Cancel this tour?');
+    if (r) {
+      this.model.set("status", "cancelled");
+      this.model.save({}, {
+        success: function (){
+
+        },
+        error: function(response){
+          debugger;
+        }
+      });
+    }
+
   }
 
 });

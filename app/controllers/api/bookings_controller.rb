@@ -27,8 +27,19 @@ class Api::BookingsController < ApplicationController
     end
   end
 
-  def update
+  def cancel
     booking = Booking.find(id: params[:id])
+    booking.status = "cancelled"
+    if booking.save
+      render json: booking
+    else
+      render json: booking.errors.full_messages, status: :unprocessable_entity
+    end
+
+  end
+
+  def update
+    booking = Booking.find(params[:id])
     if booking.update(booking_params)
       render json: booking
     else
@@ -37,7 +48,7 @@ class Api::BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:tour_id, :tour_date)
+    params.require(:booking).permit(:tour_id, :tour_date, :status)
   end
 
 end
