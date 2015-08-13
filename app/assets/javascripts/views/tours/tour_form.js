@@ -1,4 +1,4 @@
-Tryable.Views.TourForm = Backbone.View.extend({
+Tryable.Views.TourForm = Backbone.CompositeView.extend({
 
   template: JST['tours/form'],
   tagName: 'form',
@@ -9,13 +9,27 @@ Tryable.Views.TourForm = Backbone.View.extend({
 
   initialize: function (){
     this.listenTo(this.model, "sync", this.render );
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "sync", this.render );
+    this.collection.each(this.addPhotoView.bind(this));
+    this.listenTo(this.collection, "add", this.addPhotoView);
+    this.listenTo(this.collection, 'remove', this.removePhotoView);
   },
 
   render: function (){
     var content = this.template( {tour: this.model });
     this.$el.html(content);
+    this.attachSubviews();
     return this;
+  },
+
+  addPhotoView: function(image){
+    console.log("addphotoview called")
+    var subview = new Tryable.Views.ImageItem({ model: image });
+    this.addSubview('.images', subview);
+  },
+
+  removePhotoView: function(image) {
+    this.removeModelSubview('.images', tour)
   },
 
   upload: function(e){
