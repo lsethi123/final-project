@@ -10,7 +10,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
 
   initialize: function(options){
     this.$rootEl = options.$rootEl;
-    window.places = this.collection = options.places;
+    this.collection = options.places;
     this.bookings = new Tryable.Collections.Bookings();
     this.bookings.fetch();
   },
@@ -28,19 +28,17 @@ Tryable.Routers.Router= Backbone.Router.extend({
     this._swapViews(view);
   },
 
+  newTour: function (){
+    this.collection.fetch();
+    var model = new Tryable.Models.Tour();
+    var view = new Tryable.Views.TourForm({ model: model, places: this.collection }); //
+    this._swapViews(view);
+  },
+
   showTour: function (id){
     var model = new Tryable.Models.Tour({id: id});
     model.fetch();
     var view = new Tryable.Views.TourShow({ model: model, collection: this.bookings });
-    this._swapViews(view);
-  },
-
-  newTour: function (){
-    this.collection.fetch();
-    var model = new Tryable.Models.Tour();
-    // var images = new Tryable.Collections.Images();
-    // images.fetch();
-    var view = new Tryable.Views.TourForm({ model: model, places: this.collection }); //
     this._swapViews(view);
   },
 

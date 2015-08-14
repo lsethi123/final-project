@@ -16,12 +16,9 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
     this.collection.each(this.addPhotoView.bind(this));
     this.listenTo(this.collection, "add", this.addPhotoView);
     this.listenTo(this.collection, 'remove', this.removePhotoView);
-
-    this.listenTo(this.model, "change:[id]", this.linkPhotos)
   },
 
   render: function (){
-    // debugger;
     var content = this.template( {tour: this.model, places: this.places });
     this.$el.html(content);
     this.attachSubviews();
@@ -63,33 +60,24 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
     var that = this;
     e.preventDefault();
     var formData = this.$el.find('form').serializeJSON();
-    var tour = new Tryable.Models.Tour(formData.tour);
+    this.model.set(formData.tour);
 
-    tour.save({}, {
-      success: function (){
-        tour.fetch({ success: function () {
-          that.collection.each( function (photo) {
-            photo.set({ imageable_id: tour.get('id') });
-            photo.save();
-          });
-          Backbone.history.navigate('#/tours/'+tour.get('id'), { trigger: true });
-        } });
+    this.model.save( {}, {
+      success: function (model, response ){
+          that.linkPhotosToId(response.id);
+          Backbone.history.navigate('#/tours/' + response.id, { trigger: true });
       },
       error: function (response){
           console.log("Error callback called");
           debugger;
-        }
-     } );
+      }
+    });
   },
 
-  // linkPhoto: function(photo){
-  //   console.log("LinkTour called");
-  //   console.log("Model id:");
-  //   console.log(this.model.get('id'));
-  //   this.collection.each( function (photo) {
-  //     photo.set({ imageable_id: this.model.get('id') });
-  //     photo.save();
-  //   });
-  // }
+  linkPhotosToId: function(id){
+    this.collection.each( function (photo) {
+      photo.save( {imageable_id: id} );
+    });
+  }
 
 });
