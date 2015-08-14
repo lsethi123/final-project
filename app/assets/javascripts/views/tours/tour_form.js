@@ -5,7 +5,7 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
   },
 
   initialize: function (options){
-    this.places = options.places
+    this.places = options.places;
     this.collection = new Tryable.Collections.Images();
     this.listenTo(this.model, "sync", this.render );
     this.listenTo(this.places, "sync", this.render);
@@ -20,7 +20,6 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
   },
 
   addImageUploader: function(){
-    console.log('added')
     var subview = new Tryable.Views.ImageUploader({ collection: this.collection });
     this.addSubview('.image-upload', subview);
   },
@@ -38,7 +37,6 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
       },
       error: function (response){
           console.log("Error callback called");
-          debugger;
       }
     });
   },

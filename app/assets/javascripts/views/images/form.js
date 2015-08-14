@@ -24,7 +24,7 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
   },
 
   removePhotoView: function(image) {
-    this.removeModelSubview('.images', image)
+    this.removeModelSubview('.images', image);
   },
 
   upload: function(e){
@@ -38,14 +38,14 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
             thumb_url:
             data.thumbnail_url,
             imageable_type: "Tour"
-        };
+        });
         image.save({}, {
           success: function(){
             that.collection.add(image);
           }
         });
-      })
-    })
+      });
+    });
   },
 
 });

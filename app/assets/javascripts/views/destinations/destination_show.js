@@ -23,7 +23,7 @@ Tryable.Views.DestinationShow = Backbone.CompositeView.extend({
   },
 
   removeTourView: function(tour) {
-    this.removeModelSubview('.tours', tour)
+    this.removeModelSubview('.tours', tour);
   }
 
 });

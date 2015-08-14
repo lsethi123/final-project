@@ -27,7 +27,7 @@ Tryable.Views.BookingsIndexItem = Backbone.View.extend({
 
         },
         error: function(response){
-          debugger;
+          
         }
       });
     }

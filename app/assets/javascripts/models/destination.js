@@ -11,7 +11,7 @@ Tryable.Models.Destination = Backbone.Model.extend({
   parse: function (response) {
     if (response.tours){
       this.tours().set(response.tours, { parse: true });
-      response.tours.remove;
+      response.tours.remove();
     }
     return response;
   }

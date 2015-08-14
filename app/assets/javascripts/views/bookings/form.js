@@ -20,7 +20,7 @@ Tryable.Views.BookingForm = Backbone.View.extend({
     clearBtn: true,
     todayHighlight: true
     });
-    
+
     return this;
   },
 

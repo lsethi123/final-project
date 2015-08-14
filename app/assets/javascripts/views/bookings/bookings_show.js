@@ -23,7 +23,7 @@ Tryable.Views.BookingsShow = Backbone.CompositeView.extend({
   },
 
   removeItemView: function(booking) {
-    this.removeModelSubview('.bookings-index-items', booking)
+    this.removeModelSubview('.bookings-index-items', booking);
   }
 
 });
