@@ -2,31 +2,37 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
 
   template: JST['destinations/index'],
   events: {
-    'input .search-box' : 'handleInput',
+    'click button' : 'search'
   },
 
   initialize: function (){
-    this.addSearchView();
     this.collection.fetch();
+    this.listenTo( this.collection, "sync", this.addAutocomplete );
   },
 
   render: function (){
     var content = this.template({places: this.collection});
     this.$el.html(content);
-    this.attachSubviews();
     return this;
   },
 
-  addSearchView: function (){
-    var subview = new Tryable.Views.SearchResults({collection: this.collection});
-    this.addSubview('.search-results', subview);
+  addAutocomplete: function(){
+    $("#search-places").autocomplete({
+      source: this.collection.pluck('name'),
+        close: function(event, ui){
+          this.search(event);
+        }.bind(this)
+    });
+
+    $('#search-places').focus();
   },
 
-  handleInput: function(e){
-    var query = $(e.currentTarget).val();
-    this.collection.fetch({
-      data: { query: query }
-    });
+  search: function(e){
+    var placeName = this.$el.find('#search-places').val()
+    var place = this.collection.findWhere({name: placeName });
+    if (place !== undefined){
+      Backbone.history.navigate('destinations/'+ place.escape('id'), {trigger: true} );
+    }
   }
 
 });

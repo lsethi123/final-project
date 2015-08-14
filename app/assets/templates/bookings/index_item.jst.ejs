@@ -1,5 +1,8 @@
   <td> <%= booking.escape('tour_id') %></td>
-  <td> <%= booking.escape('tour_name')%>, <%=booking.escape('tour_city')%></td>
+  <td><a href="#/tours/<%=booking.escape('tour_id')%>">
+      <%= booking.escape('tour_name')%>, <%=booking.escape('tour_city')%>
+    </a>
+  </td>
   <td><%= booking.escape('tour_date')%></td>
   <td><%= booking.escape('status') %></td>
     <% if (booking.escape('status') !== "cancelled") { %>
