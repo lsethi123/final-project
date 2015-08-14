@@ -21,7 +21,6 @@ end
 #Images
 image_urls = [
   "https://aarynvaughan.files.wordpress.com/2014/06/sf-trolley2-634x350.jpg",
-
 ]
 
 #TOURS
