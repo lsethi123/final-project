@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :destinations, only: [:show, :index]
     resources :tours, only: [:show, :create]
     resources :bookings, only: [:create, :update, :index, :show]
-    resources :images, except: [:update, :edit]
+    resources :images, except: [:edit]
     post 'bookings/:id/cancel' => 'bookings#cancel'
     # get 'destinations/search' => 'destination#search'
   end

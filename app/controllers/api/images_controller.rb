@@ -13,6 +13,15 @@ class Api::ImagesController < ApplicationController
     render json: Image.find(params[:id])
   end
 
+  def update
+    image = Image.find(params[:id])
+    if image.update(image_params)
+      render json: image
+    else
+      render json: image, status: :uprocessable_entity
+    end
+  end
+
   def destroy
     image = Image.find(params[:id])
     image.destroy
@@ -26,7 +35,7 @@ class Api::ImagesController < ApplicationController
 
   private
   def image_params
-    params.require(:image).permit(:url, :thumb_url, :imageable_type)
+    params.require(:image).permit(:url, :thumb_url, :imageable_type, :imageable_id)
   end
 
 end

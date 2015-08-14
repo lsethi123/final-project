@@ -19,7 +19,6 @@ Tryable.Views.ImageItem = Backbone.View.extend({
   delete: function (e){
     e.preventDefault();
     this.model.destroy();
-  }
-
+  },
 
 });
