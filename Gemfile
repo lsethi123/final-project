@@ -46,6 +46,8 @@ gem 'cloudinary'
 #API key management
 gem 'figaro'
 
+# For deployment on heroku/ keep dynos active
+gem 'newrelic_rpm'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
