@@ -4,9 +4,16 @@
 <div class="root-div">
 </div>
 
+<!-- <%= image_tag("backdrop.jpeg") %> -->
+
 <script type="text/javascript">
   $(document).ready(function(){
-      Tryable.initialize();
+    $.cloudinary.config({
+      cloud_name: "<%= ENV["CLOUD_NAME"] %>",
+      api_key: "<%= ENV["CLOUD_API_KEY"] %>"
+    });
+
+    Tryable.initialize();
   });
 
   <% if logged_in? %>
