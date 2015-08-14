@@ -4,12 +4,13 @@ Tryable.Views.ImageItem = Backbone.View.extend({
     'click button' : "delete"
   },
 
-  initialize: function (){
+  initialize: function (options){
     this.listenTo(this.model, "sync", this.render);
+    this.editable = options.editable;
   },
 
   render: function (){
-    var content = this.template( {image: this.model });
+    var content = this.template( {image: this.model, editable: this.editable });
     this.$el.html(content);
     return this;
   },

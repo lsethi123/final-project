@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    User.find_by(session_token: session[:session_token])
+   User.find_by(session_token: session[:session_token])
     # TA: It's good to memoize (||=) current_user to an instance variable, to
     # avoid hitting the database more than once per request.
   end

@@ -44,6 +44,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
 
   showBookings: function(id){
     var view = new Tryable.Views.BookingsShow({ collection: this.bookings });
+    this.bookings.fetch();
     this._swapViews(view);
   },
 

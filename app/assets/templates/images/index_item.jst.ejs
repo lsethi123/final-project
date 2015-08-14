@@ -1,2 +1,4 @@
 <img src="<%=image.escape('url')%>" alt="" />
-<button type="button" class='btn btn-danger' name="button">Delete</button>
+<% if (editable) { %>
+  <button type="button" class='btn btn-danger' name="button">Delete</button>
+<% } %>

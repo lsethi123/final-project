@@ -27,7 +27,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
   },
 
   addPhotoView: function(image){
-    var subview = new Tryable.Views.ImageItem({model: image});
+    var subview = new Tryable.Views.ImageItem({model: image, editable: false});
     this.addSubview('.photos-index', subview);
   }
 
