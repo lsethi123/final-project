@@ -1,6 +1,7 @@
 class Api::DestinationsController < ApplicationController
   def show
     @place = Destination.find(params[:id])
+    @tours = @place.tours.includes(:images)
     render :show
   end
 
