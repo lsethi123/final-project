@@ -3,7 +3,6 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
   template: JST['destinations/index'],
   events: {
     'input .search-box' : 'handleInput',
-    // 'click .search-name' : 'hideResults'
   },
 
   initialize: function (){
@@ -28,10 +27,6 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
     this.collection.fetch({
       data: { query: query }
     });
-  },
-  //
-  // hideResults: function() {
-  //   this.$('.input').empty();
-  // }
+  }
 
 });

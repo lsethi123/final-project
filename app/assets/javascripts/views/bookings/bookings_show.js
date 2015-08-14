@@ -11,7 +11,6 @@ Tryable.Views.BookingsShow = Backbone.CompositeView.extend({
   },
 
   render: function (){
-    // debugger;
     var content = this.template( {bookings: this.collection });
     this.$el.html(content);
     this.attachSubviews();

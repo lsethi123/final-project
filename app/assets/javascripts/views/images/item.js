@@ -1,7 +1,5 @@
 Tryable.Views.ImageItem = Backbone.View.extend({
-
   template: JST['images/index_item'],
-
   events: {
     'click button' : "delete"
   },

@@ -1,7 +1,5 @@
 Tryable.Views.TourForm = Backbone.CompositeView.extend({
-
   template: JST['tours/form'],
-
   events: {
     "click .upload-button" : "upload",
     "click .submit-booking" : 'submit'
@@ -9,6 +7,8 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
 
   initialize: function (options){
     this.places = options.places
+    this.collection = new Tryable.Collections.Images();
+
     this.listenTo(this.model, "sync", this.render );
     this.listenTo(this.collection, "sync", this.render );
     this.listenTo(this.places, "sync", this.render);
@@ -82,14 +82,14 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
      } );
   },
 
-  linkPhotos: function(){
-    console.log("LinkTour called");
-    console.log("Model id:");
-    console.log(this.model.get('id'));
-    this.collection.each( function (photo) {
-      photo.set({ imageable_id: this.model.get('id') });
-      photo.save();
-    });
-  }
+  // linkPhoto: function(photo){
+  //   console.log("LinkTour called");
+  //   console.log("Model id:");
+  //   console.log(this.model.get('id'));
+  //   this.collection.each( function (photo) {
+  //     photo.set({ imageable_id: this.model.get('id') });
+  //     photo.save();
+  //   });
+  // }
 
 });
