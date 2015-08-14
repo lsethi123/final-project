@@ -10,7 +10,7 @@ class Api::DestinationsController < ApplicationController
       @places = Destination.where('LOWER(name) LIKE ?', "%#{params[:query].downcase}%")
       # @places = Destination.where('name~?', params[:query])
     else
-      @places = Destination.none
+      @places = Destination.all
     end
     render json: @places
   end

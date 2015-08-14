@@ -1,20 +1,26 @@
 <h2>List Your Experience</h2>
-<input type="hidden" name="tour[user_id]" value="<%= Tryable.CURRENT_USER %>">
+<form class="new-tour">
+  <select name="tour[destination_id]">
+    <% places.each( function(place) { %>
+      <option value="<%=place.escape('id')%>"><%=place.escape('name')%></option>
+    <% }); %>
+  </select>
 
-<label>Title
-  <input type="text" name="tour[title]">
-</label>
-<label>Description
-  <textarea name="tour[description]"></textarea>
-</label>
+  <label>Title
+    <input type="text" name="tour[title]">
+  </label>
+  <label>Description
+    <textarea name="tour[description]"></textarea>
+  </label>
 
-<label>Price
-  <input type="number" name="tour[price]">
-</label>
+  <label>Price
+    <input type="number" name="tour[price]">
+  </label>
 
-<button class="upload-button">upload new image</button>
+  <button type="button btn-primary" class='submit-booking btn btn-primary'>Save</button>
+</form>
+
+<h4>Add Photos</h4>
+<button class="upload-button btn btn-default">Upload</button>
 <div class="images">
-
 </div>
-
-<button type="button btn-primary" class='submit-booking btn btn-primary'>Save</button>

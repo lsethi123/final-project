@@ -25,7 +25,6 @@ Tryable.Views.BookingForm = Backbone.View.extend({
 
   submitBooking: function(e){
     e.preventDefault();
-
     var formData = this.$el.serializeJSON();
     var booking = new Tryable.Models.Booking(formData.booking);
     booking.set('tour_date', this.$('.date-picker').datepicker('getDate'));

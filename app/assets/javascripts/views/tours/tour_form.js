@@ -1,22 +1,25 @@
 Tryable.Views.TourForm = Backbone.CompositeView.extend({
 
   template: JST['tours/form'],
-  tagName: 'form',
 
   events: {
-    "click .upload-button" : "upload"
+    "click .upload-button" : "upload",
+    "click .submit-booking" : 'submit'
   },
 
-  initialize: function (){
+  initialize: function (options){
+    this.places = options.places
     this.listenTo(this.model, "sync", this.render );
     this.listenTo(this.collection, "sync", this.render );
+    this.listenTo(this.places, "sync", this.render);
     this.collection.each(this.addPhotoView.bind(this));
     this.listenTo(this.collection, "add", this.addPhotoView);
     this.listenTo(this.collection, 'remove', this.removePhotoView);
   },
 
   render: function (){
-    var content = this.template( {tour: this.model });
+    // debugger;
+    var content = this.template( {tour: this.model, places: this.places });
     this.$el.html(content);
     this.attachSubviews();
     return this;
@@ -29,27 +32,47 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
   },
 
   removePhotoView: function(image) {
-    this.removeModelSubview('.images', tour)
+    this.removeModelSubview('.images', image)
   },
 
   upload: function(e){
     e.preventDefault();
     var that = this;
-    var image = new Tryable.Models.Image();
+
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result) {
-      var data = result[0];
-      image.set( {
-        url: data.url,
-        thumb_url:
-        data.thumbnail_url,
-        imageable_type: "Tour"
-      });
-      image.save({}, {
-        success: function(){
-          that.collection.add(image);
-        }
+      result.forEach( function (data){
+        var image = new Tryable.Models.Image();
+        image.set( {
+          url: data.url,
+          thumb_url:
+          data.thumbnail_url,
+          imageable_type: "Tour"
+        });
+        image.save({}, {
+          success: function(){
+            that.collection.add(image);
+          }
+        })
       })
     })
+  },
+
+  submit: function(e){
+    e.preventDefault();
+    var formData = this.$el.find('form').serializeJSON();
+    var tour = new Tryable.Models.Tour(formData.tour);
+
+    tour.save({}, {
+      success: function (){
+        tour.fetch();
+        // this.collection.add(tour);
+        Backbone.history.navigate('#/tours/'+tour.get('id'), { trigger: true });
+      }.bind(this),
+      error: function (response){
+          console.log("Error callback called");
+          debugger;
+        }
+     } );
   }
 
 });

@@ -13,6 +13,12 @@ class Api::ImagesController < ApplicationController
     render json: Image.find(params[:id])
   end
 
+  def destroy
+    image = Image.find(params[:id])
+    image.destroy
+    render json: image
+  end
+
   def index
     images = Image.all
     render json: images
