@@ -9,7 +9,11 @@
 #USERS
 usernames = %w(lisa joe demo)
 usernames.each do |username|
-  User.create(username: username, password: "password")
+  User.create(
+    username: username,
+    password: "password",
+    name: "#{Faker::Name.first_name} #{Faker::Name.last_name.first}.",
+    about: Faker::Lorem.paragraph)
 end
 
 #DESTINATIONS
@@ -19,9 +23,7 @@ cities.each do |city|
 end
 
 #Images
-image_urls = [
-  "https://aarynvaughan.files.wordpress.com/2014/06/sf-trolley2-634x350.jpg",
-]
+
 
 #TOURS
 sf = Destination.first

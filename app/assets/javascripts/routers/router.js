@@ -5,7 +5,8 @@ Tryable.Routers.Router= Backbone.Router.extend({
     'destinations/:id' : 'showDestination',
     'tours/new' : 'newTour',
     'tours/:id' :'showTour',
-    'bookings' : 'showBookings'
+    'bookings' : 'showBookings',
+    'users/:id' : 'showUser'
   },
 
   initialize: function(options){
@@ -13,6 +14,13 @@ Tryable.Routers.Router= Backbone.Router.extend({
     this.collection = options.places;
     this.bookings = new Tryable.Collections.Bookings();
     this.bookings.fetch();
+  },
+
+  showUser: function(id){
+    var user = new Tryable.Models.User({id: id});
+    user.fetch();
+    var view = new Tryable.Views.UserShow({ model: user });
+    this._swapViews(view);
   },
 
   index: function() {
