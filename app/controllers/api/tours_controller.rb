@@ -7,11 +7,10 @@ class Api::ToursController < ApplicationController
   end
 
   def create
-    tour = Tour.new(tour_params)
-    tour.user_id = current_user.id
+    @tour = current_user.tours.new(tour_params)
 
-    if (tour.save)
-      render json: tour
+    if (@tour.save)
+      render :show
     else
       render json: tour, status: :unprocessable_entity
     end

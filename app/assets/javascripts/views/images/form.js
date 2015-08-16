@@ -2,11 +2,12 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
   template: JST['images/form'],
   events: {
     "click .upload-button" : "upload",
+    'click .done' : "linkPhotosToId"
   },
 
   initialize: function (options){
-    this.listenTo(this.collection, "sync", this.render );
-    this.collection.each(this.addPhotoView.bind(this));
+    this.listenTo(this.model, "sync", this.render);
+    this.collection = new Tryable.Collections.Images();
     this.listenTo(this.collection, "add", this.addPhotoView);
     this.listenTo(this.collection, 'remove', this.removePhotoView);
   },
@@ -35,9 +36,9 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
       result.forEach( function (data){
         var image = new Tryable.Models.Image({
             url: data.url,
-            thumb_url:
-            data.thumbnail_url,
-            imageable_type: "Tour"
+            thumb_url: data.thumbnail_url,
+            imageable_type: "Tour",
+            imageable_id: that.model.escape('id')
         });
         image.save({}, {
           success: function(){
@@ -47,5 +48,12 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
       });
     });
   },
+
+  linkPhotosToId: function(){
+    this.collection.each( function (photo) {
+      photo.save( {imageable_id: this.model.escape('id')} );
+    }.bind(this) );
+    Backbone.history.navigate('tours/' + this.model.escape('id'), {trigger: true});
+  }
 
 });

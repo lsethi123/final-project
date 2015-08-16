@@ -11,10 +11,10 @@ Tryable.Views.ImageItem = Backbone.View.extend({
 
   render: function (){
     var content = this.template( {image: this.model, editable: this.editable });
-    var img = $.cloudinary.image(this.model.escape('url'), {width: 1200, height: 600, crop: 'fill' });
-    img.addClass('tour-show-img');
+    // var img = $.cloudinary.image(this.model.escape('url'), {width: 1200, height: 600, crop: 'fill' });
+    // img.addClass('tour-show-img');
     this.$el.html(content);
-    this.$el.prepend(img);
+    // this.$el.prepend(img);
     return this;
   },
 

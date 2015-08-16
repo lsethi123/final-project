@@ -4,6 +4,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
     '' : 'index',
     'destinations/:id' : 'showDestination',
     'tours/new' : 'newTour',
+    'tours/:id/photos' : 'addPhotos',
     'tours/:id' :'showTour',
     'bookings' : 'showBookings',
     'users/:id' : 'showUser'
@@ -40,6 +41,13 @@ Tryable.Routers.Router= Backbone.Router.extend({
     this.collection.fetch();
     var model = new Tryable.Models.Tour();
     var view = new Tryable.Views.TourForm({ model: model, places: this.collection }); //
+    this._swapViews(view);
+  },
+
+  addPhotos: function(id){
+    var model = new Tryable.Models.Tour({id: id});
+    model.fetch();
+    var view = new Tryable.Views.ImageUploader({ model: model });
     this._swapViews(view);
   },
 

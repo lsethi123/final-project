@@ -1,8 +1,8 @@
 json.extract! @place, :id, :name
 json.tours @place.tours do |tour|
   json.extract! tour, :title, :description, :id
-  if tour.images && tour.images.length >0
-    json.extract! tour.images.first, :thumb_url
+  json.images tour.images do |image|
+    json.extract! image, :url
   end
   json.provider do
     json.extract! tour.provider, :id, :name, :username, :about
