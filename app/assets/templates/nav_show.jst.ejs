@@ -41,14 +41,14 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#">Profile</a></li>
+              <li><a href="#/users/<%=Tryable.CURRENT_USER.id%>">Profile</a></li>
               <li><a href="#/bookings">Reservations</a></li>
               <li role="separator" class="divider"></li>
               <li>
                 <form action="/session" method="post">
                   <input type="hidden" name="authenticity_token" value="<%=Tryable.AUTH_TOKEN%>">
                   <input type="hidden" name="_method" value="delete">
-                  <input type="submit" value="Logout">
+                  <input class='logout' type="submit" value="Logout">
                 </form>
               </li>
             </ul>

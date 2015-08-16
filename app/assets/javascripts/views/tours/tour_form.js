@@ -1,5 +1,6 @@
 Tryable.Views.TourForm = Backbone.CompositeView.extend({
   template: JST['tours/form'],
+  className: 'row',
   events: {
     "click .submit-booking" : 'submit'
   },

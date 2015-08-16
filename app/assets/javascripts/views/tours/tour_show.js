@@ -6,6 +6,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", this.render );
     this.listenTo(this.model, "sync", this.render );
     this.listenTo(this.model, "sync", this.addPhotos);
+    this.listenTo(this.model, "sync", this.addProvider);
     this.addBookingView();
   },
 
@@ -23,12 +24,19 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
 
   addPhotos: function(){
     this.images = this.model.images();
+    // this.$el.find('.jumbotron').css('background-image', url(header_url) );
     this.images.each(this.addPhotoView.bind(this));
   },
 
   addPhotoView: function(image){
     var subview = new Tryable.Views.ImageItem({model: image, editable: false});
     this.addSubview('.photos-index', subview);
+  },
+
+  addProvider: function(){
+    this.provider = this.model.provider();
+    var subview = new Tryable.Views.UserShow({model: this.provider });
+    this.addSubview('.provider', subview);
   }
 
 });

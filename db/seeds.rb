@@ -9,37 +9,59 @@
 #USERS
 usernames = %w(lisa joe demo)
 usernames.each do |username|
-  User.create(username: username, password: "password")
+  User.create(
+    username: username,
+    password: "password",
+    name: "#{username.titlecase} #{Faker::Name.last_name.first}.",
+    about: Faker::Lorem.paragraph)
 end
 
 #DESTINATIONS
-cities = ["San Francisco", "New York", "Los Angeles", "Chicago"]
+cities = ["San Francisco", "Hong Kong", "Quito"]
 cities.each do |city|
   Destination.create(name: city)
 end
 
-#Images
-image_urls = [
-  "https://aarynvaughan.files.wordpress.com/2014/06/sf-trolley2-634x350.jpg",
-
-]
-
 #TOURS
 sf = Destination.first
+hk = Destination.find(2)
+uio = Destination.last
+
+prices = [50, 75, 100, 150]
+
 sf_tours = ["Walking Tour of Chinatown",
-          "Sourdough bread workshop",
+          "Fruit salad workshop",
           "Biking the Mission",
-          "Foraging food tour",
-          "Walk Lands End",
+          "Sail on the bay",
+          "Sourdough bread tour",
           "Picnic in Dolores Park"]
-sf_tours.each do |tour|
-  sf.tours.create(
-    title: tour,
-    description: Faker::Lorem.paragraph,
-    user_id: 1,
-    price: [50, 100, 150, 129, 200].sample
+hk_tours = ["Tour fishing boat",
+            "Learn to make cha-su bao",
+            "High-rise barhopping tour",
+            "Vegan food tour"]
+uio_tours = ["Horseback riding",
+            "City tour",
+            "Street food tour",
+            "Learn folkloric dancing",
+            "Market tour"]
+
+dest_tours = {sf=>sf_tours, hk=>hk_tours, uio =>uio_tours}
+
+dest_tours.each do |destination, tours|
+  tours.each do |t|
+    destination.tours.create(
+      title: t,
+      description: Faker::Lorem.paragraph,
+      user_id: [1,2,3].sample,
+      price: prices.sample
   )
 end
+
+#IMAGES
+Tour.all.each do |tour|
+
+var url = $.cloudinary.image("/seeds/#{tour_id}/#{img_id}").attr('url');
+
 
 #BOOKINGS (Lisa and demo are booked on all tours)
 users = [User.first, User.last]

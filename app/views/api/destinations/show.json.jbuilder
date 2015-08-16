@@ -4,4 +4,7 @@ json.tours @place.tours do |tour|
   if tour.images && tour.images.length >0
     json.extract! tour.images.first, :thumb_url
   end
+  json.provider do
+    json.extract! tour.provider, :id, :name, :username, :about
+  end
 end
