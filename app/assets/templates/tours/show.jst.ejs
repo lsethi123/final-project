@@ -1,24 +1,30 @@
-<div class="row">
-  <div class="row photos-index"></div>
-    <h2 class='tour-title'><%=tour.escape('title')%></h2>
-    <p><%=tour.escape('owner')%></p>
+<div class="row tour-header">
+  <h2 class='tour-title'><%=tour.escape('title')%></h2>
+  <p><%=tour.escape('owner')%></p>
+  <div class="col-md-12">
+
+  </div>
 </div>
 
 <div class="row row-2">
-  <div class="col-md-3">
-    <a class='btn btn-default' href="#/destinations/<%=tour.get('destination_id')%>">Back</a>
-  </div>
-
-  <div class="col-md-6">
+  <div class="col-md-8">
+      <a class='btn btn-default' href="#/destinations/<%=tour.get('destination_id')%>">Back</a>
+      <h2>About this tour</h2>
       <%=tour.escape('description')%>
       <%=tour.escape('name')%>
       <%=tour.escape('about')%>
   </div>
 
-  <div class="booking-form col-md-3">
+  <div class="booking-form col-md-12">
   </div>
 </div>
 
-<div class="row provider">
+<div class="row">
+  <div class="col-md-12 photos-index">
+  </div>
+</div>
 
+<div class="row">
+  <div class="col-md-12 provider">
+  </div>
 </div>

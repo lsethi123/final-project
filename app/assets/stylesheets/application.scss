@@ -37,7 +37,8 @@ a, a:hover {
     float: none;
     display: table-cell;
     vertical-align: top;
-    border: 1px solid lightgray
+    border: 1px solid lightgray;
+    background-color: white;
 }
 // Navbar styles
 .logout {
@@ -163,4 +164,9 @@ img.tour-img {
   font-size: 18px;
 }
 
-//New tour
+//Tour Show
+.photos-index > div {
+  float: left;
+  padding: 10px;
+  background-color: white;
+}

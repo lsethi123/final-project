@@ -20,7 +20,7 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
   },
 
   addPhotoView: function(image){
-    var subview = new Tryable.Views.ImageItem({ model: image, editable: true });
+    var subview = new Tryable.Views.ImageItem({ model: image, editable: true, width: 500, height: 300});
     this.addSubview('.images', subview);
   },
 

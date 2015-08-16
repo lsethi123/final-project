@@ -16,7 +16,7 @@ Tryable.Views.TourItem = Backbone.View.extend({
       img.addClass('tour-img');
     }
     this.$el.html(content);
-    this.$el.prepend(img);
+    this.$el.find('.thumbnail').html(img);
     return this;
   }
 

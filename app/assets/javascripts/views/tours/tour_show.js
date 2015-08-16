@@ -24,12 +24,19 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
 
   addPhotos: function(){
     this.images = this.model.images();
+    var first_img = this.images.at(1);
     // this.$el.find('.jumbotron').css('background-image', url(header_url) );
+    this.addHeaderView(first_img);
     this.images.each(this.addPhotoView.bind(this));
   },
 
+  addHeaderView: function(image){
+    var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 1500, height: 400});
+    this.addSubview('.tour-header', subview);
+  },
+
   addPhotoView: function(image){
-    var subview = new Tryable.Views.ImageItem({model: image, editable: false});
+    var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 300, height: 200});
     this.addSubview('.photos-index', subview);
   },
 
