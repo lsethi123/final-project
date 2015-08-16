@@ -15,6 +15,6 @@ class Tour < ActiveRecord::Base
   belongs_to :destination
   belongs_to :provider, {foreign_key: :user_id, class_name: "User"}
   has_many :bookings
-  has_many :images, as: :imageable
+  has_many :images, as: :imageable, dependent: :destroy
 
 end

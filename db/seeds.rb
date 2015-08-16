@@ -32,9 +32,8 @@ prices = [50, 75, 100, 150]
 sf_tours = ["Walking Tour of Chinatown",
           "Fruit salad workshop",
           "Biking the Mission",
-          "Sail on the bay",
           "Sourdough bread tour",
-          "Picnic in Dolores Park"]
+          "Sail the bay"]
 hk_tours = ["Tour fishing boat",
             "Learn to make cha-su bao",
             "High-rise barhopping tour",
@@ -45,7 +44,7 @@ uio_tours = ["Horseback riding",
             "Learn folkloric dancing",
             "Market tour"]
 
-dest_tours = {sf=>sf_tours, hk=>hk_tours, uio =>uio_tours}
+dest_tours = {sf=>sf_tours} #, hk=>hk_tours, uio =>uio_tours}
 
 dest_tours.each do |destination, tours|
   tours.each do |t|
@@ -54,14 +53,24 @@ dest_tours.each do |destination, tours|
       description: Faker::Lorem.paragraph,
       user_id: [1,2,3].sample,
       price: prices.sample
-  )
+      )
+  end
 end
 
 #IMAGES
+NUM_IMGS = 3
+
 Tour.all.each do |tour|
-
-var url = $.cloudinary.image("/seeds/#{tour_id}/#{img_id}").attr('url');
-
+  NUM_IMGS.times do |i|
+    # img = $.cloudinary.image('static/backdrop.jpg' )
+    Image.create(
+      imageable_id: tour.id,
+      imageable_type: "Tour",
+      url: Cloudinary::Utils.cloudinary_url(
+              "seeds/#{tour.id}_#{i+1}.jpg")
+      )
+  end
+end
 
 #BOOKINGS (Lisa and demo are booked on all tours)
 users = [User.first, User.last]

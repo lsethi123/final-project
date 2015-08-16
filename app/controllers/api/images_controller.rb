@@ -25,6 +25,7 @@ class Api::ImagesController < ApplicationController
   def destroy
     image = Image.find(params[:id])
     image.destroy
+    Cloudinary::Uploader.destroy(image.url)
     render json: image
   end
 
