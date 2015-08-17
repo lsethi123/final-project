@@ -37,20 +37,23 @@ sf_tours = ["Walking Tour of Chinatown",
 hk_tours = ["Tour fishing boat",
             "Learn to make cha-su bao",
             "High-rise barhopping tour",
-            "Vegan food tour"]
-uio_tours = ["Horseback riding",
-            "City tour",
+            "Vegan food tour",
+            "Temples Tour"]
+uio_tours = ["City Tour",
+            "Horseback riding on a volcano",
             "Street food tour",
             "Learn folkloric dancing",
             "Market tour"]
 
-dest_tours = {sf=>sf_tours} #, hk=>hk_tours, uio =>uio_tours}
+dest_tours = {sf=>sf_tours, hk=>hk_tours, uio =>uio_tours}
 
 dest_tours.each do |destination, tours|
   tours.each do |t|
+    p = ""
+    10.times {p += Faker::Lorem.paragraph}
     destination.tours.create(
       title: t,
-      description: Faker::Lorem.paragraph,
+      description: p,
       user_id: [1,2,3].sample,
       price: prices.sample
       )

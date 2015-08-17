@@ -30,13 +30,13 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
   addPhotos: function(){
     this.images = this.model.images();
     var first_img = this.images.at(1);
-    // this.$el.find('.jumbotron').css('background-image', url(header_url) );
+
     this.addHeaderView(first_img);
     this.images.each(this.addPhotoView.bind(this));
   },
 
   addHeaderView: function(image){
-    var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 1500, height: 400});
+    var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 1800, height: 600});
     this.addSubview('.tour-header', subview);
   },
 

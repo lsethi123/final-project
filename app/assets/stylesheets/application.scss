@@ -42,7 +42,7 @@ a, a:hover {
     display: table-cell;
     vertical-align: top;
     border: 1px solid lightgray;
-    background-color: white;
+    padding: 20px;
 }
 // Navbar styles
 .logout {
@@ -61,7 +61,6 @@ a, a:hover {
 
 //Homepage
 .jumbotron {
-  // background-image: url('/assets/backdrop.jpeg');
   text-align: center;
   color: white;
 }
@@ -100,10 +99,10 @@ a, a:hover {
   border-radius: 5px;
 }
 
-.col-md-8, .col-md-6, .col-md-5, .col-md-4, .col-md-3 {
-  background-color: white;
-  padding: 20px;
-}
+// .col-md-8, .col-md-6, .col-md-5, .col-md-4, .col-md-3 {
+//   background-color: white;
+//   padding: 20px;
+// }
 
 //Destination Show
 
@@ -116,12 +115,17 @@ a, a:hover {
   float: left;
   margin: 10px;
   padding: 0px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
-.tour-item-text {
-  padding: 5px;
+.thumbnail {
+  padding:0;
+}
+
+.tour-item-text p {
   color: black;
+  padding: 5px;
   a {
     color: black;
   }
@@ -140,25 +144,31 @@ color: white;
 font-size: 70px;
 }
 
+.tour-header img {
+  overflow: hidden;
+}
+
 .tour-img {
-  width: 100%;
+  width: 200px;
+  height: 200px;
 }
 
 img.tour-img {
   width: 100%;
-  // position: absolute;
-  // top:0;
-  // left:0;
-  // z-index: 0;
-  // width: 100%;
-  // height:700px;
-}
-
-.row-2 {
-  position: relative;
+  position: absolute;
   top:0;
   left:0;
+  z-index: 0;
+  width: 100%;
+  height:700px;
 }
+
+.row-shift {
+  position: relative;
+  top: -300px;
+  background-color: white;
+}
+
 //Bookings
 .bookings {
   background-color: white;
