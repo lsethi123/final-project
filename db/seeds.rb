@@ -17,14 +17,14 @@ usernames.each do |username|
 end
 
 #USER_AVATARS
-User.all.each_with_index do |user, i|
-    Image.create(
-      imageable_id: user.id,
-      imageable_type: "User",
-      url: Cloudinary::Utils.cloudinary_url(
-              "avatars/#{i}.jpg")
-      )
-end
+# User.all.each_with_index do |user, i|
+#     Image.create(
+#       imageable_id: user.id,
+#       imageable_type: "User",
+#       url: Cloudinary::Utils.cloudinary_url(
+#               "avatars/#{i}.jpg")
+#       )
+# end
 
 #DESTINATIONS
 cities = ["San Francisco", "Hong Kong", "Quito"]
