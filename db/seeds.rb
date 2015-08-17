@@ -16,6 +16,16 @@ usernames.each do |username|
     about: Faker::Lorem.paragraph)
 end
 
+#USER_AVATARS
+User.all.each_with_index do |user, i|
+    Image.create(
+      imageable_id: user.id,
+      imageable_type: "User",
+      url: Cloudinary::Utils.cloudinary_url(
+              "avatars/#{i}.jpg")
+      )
+end
+
 #DESTINATIONS
 cities = ["San Francisco", "Hong Kong", "Quito"]
 cities.each do |city|
@@ -62,7 +72,6 @@ end
 
 #IMAGES
 NUM_IMGS = 3
-
 Tour.all.each do |tour|
   NUM_IMGS.times do |i|
     # img = $.cloudinary.image('static/backdrop.jpg' )
