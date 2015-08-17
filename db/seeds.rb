@@ -84,6 +84,20 @@ Tour.all.each do |tour|
   end
 end
 
+
+#Cloudinary upload from assets
+# Tour.all.each do |tour|
+#   (1..3).to_a.each do |i|
+#     file = "#{tour.id}_#{i}"
+#     Cloudinary::Uploader.upload("db/seed_images/#{file}.jpg", {
+#         public_id: "seeds/#{file}",
+#         eager: [ { :width => 200, :height => 200, :crop => :fit},
+#                 { :width => 100, :height => 100, :crop => :fit} ]
+#       });
+#   end
+# end
+
+
 #BOOKINGS (Lisa and demo are booked on all tours)
 users = [User.first, User.last]
 Tour.all.each do |tour|

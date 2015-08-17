@@ -29,7 +29,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
   },
 
   addRatings: function(){
-    var subview = new Tryable.Views.ReviewsIndex({collection: this.model.reviews() });
+    var subview = new Tryable.Views.ReviewsIndex({collection: this.model.reviews(), model: this.model});
     this.addSubview('.reviews', subview);
   },
 

@@ -68,7 +68,6 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
       url: $.cloudinary.image("static/default_"+ this.model.escape('destination_id')+".jpg").attr('src')
     });
     defaultImg.save({}, {success: function(model, response){
-      // debugger;
       Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
     }.bind(this)});
   }
