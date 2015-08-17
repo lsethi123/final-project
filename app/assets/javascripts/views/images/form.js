@@ -53,7 +53,24 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
     this.collection.each( function (photo) {
       photo.save( {imageable_id: this.model.escape('id')} );
     }.bind(this) );
-    Backbone.history.navigate('tours/' + this.model.escape('id'), {trigger: true});
+    if (this.collection.length === 0){
+      this.addDefaultImg();
+    } else {
+      Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
+    }
+
+  },
+
+  addDefaultImg: function(){
+    var defaultImg = new Tryable.Models.Image({
+      imageable_type: "Tour",
+      imageable_id: this.model.escape('id'),
+      url: $.cloudinary.image("static/default_"+ this.model.escape('destination_id')+".jpg").attr('src')
+    });
+    defaultImg.save({}, {success: function(model, response){
+      // debugger;
+      Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
+    }.bind(this)});
   }
 
 });

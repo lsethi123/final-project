@@ -29,15 +29,15 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
 
   addPhotos: function(){
     this.images = this.model.images();
-    var first_img = this.images.at(1);
-
+    var first_img = this.images.at(0);
     this.addHeaderView(first_img);
     this.images.each(this.addPhotoView.bind(this));
   },
 
   addHeaderView: function(image){
-    var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 1800, height: 1000});
-    this.addSubview('.tour-header', subview);
+    console.log(image);
+      var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 1800, height: 1000});
+      this.addSubview('.tour-header', subview);
   },
 
   addPhotoView: function(image){
