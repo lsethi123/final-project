@@ -34,8 +34,9 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
 
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result) {
       result.forEach( function (data){
+        // debugger;
         var image = new Tryable.Models.Image({
-            url: data.url,
+            url: data.public_id,
             thumb_url: data.thumbnail_url,
             imageable_type: "Tour",
             imageable_id: that.model.escape('id')

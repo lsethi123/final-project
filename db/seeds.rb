@@ -78,8 +78,7 @@ Tour.all.each do |tour|
     Image.create(
       imageable_id: tour.id,
       imageable_type: "Tour",
-      url: Cloudinary::Utils.cloudinary_url(
-              "seeds/#{tour.id}_#{i+1}.jpg")
+      url: "/seeds/#{tour.id}_#{i + 1}.jpg"
       )
   end
 end
