@@ -11,11 +11,13 @@
       <a class='btn btn-default' href="#/destinations/<%=tour.get('destination_id')%>">Back</a>
       <h2>About this tour</h2>
       <%=tour.escape('description')%>
-      <%=tour.escape('name')%>
       <%=tour.escape('about')%>
   </div>
 
-  <div class="booking-form col-md-12">
+  <div class="col-md-4">
+    <h3>Make a reservation</h4>
+    <h4>$<%=tour.escape('price')%></h5>
+    <div class="booking-form"></div>
   </div>
 </div>
 

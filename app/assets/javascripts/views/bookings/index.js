@@ -1,4 +1,4 @@
-Tryable.Views.BookingsShow = Backbone.CompositeView.extend({
+Tryable.Views.BookingsIndex = Backbone.CompositeView.extend({
   className: 'bookings-show-view',
   template: JST['bookings/index'],
 

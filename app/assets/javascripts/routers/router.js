@@ -7,12 +7,14 @@ Tryable.Routers.Router= Backbone.Router.extend({
     'tours/:id/photos' : 'addPhotos',
     'tours/:id' :'showTour',
     'bookings' : 'showBookings',
+    'bookings/new' : 'confirmBooking',
     'users/:id' : 'showUser'
   },
 
   initialize: function(options){
     this.$rootEl = options.$rootEl;
     this.collection = options.places;
+    this.booking = new Tryable.Models.Booking();
     this.bookings = new Tryable.Collections.Bookings();
     this.bookings.fetch();
   },
@@ -54,13 +56,20 @@ Tryable.Routers.Router= Backbone.Router.extend({
   showTour: function (id){
     var model = new Tryable.Models.Tour({id: id});
     model.fetch();
-    var view = new Tryable.Views.TourShow({ model: model, collection: this.bookings });
+    var view = new Tryable.Views.TourShow({ model: model, booking: this.booking, collection: this.bookings });
     this._swapViews(view);
   },
 
   showBookings: function(id){
-    var view = new Tryable.Views.BookingsShow({ collection: this.bookings });
+    var view = new Tryable.Views.BookingsIndex({ collection: this.bookings });
     this.bookings.fetch();
+    this._swapViews(view);
+  },
+
+  confirmBooking: function (){
+    var tour = new Tryable.Models.Tour( { id: this.booking.escape('tour_id') });
+    tour.fetch();
+    var view = new Tryable.Views.BookingConfirmation({ model: this.booking, tour: tour, collection: this.bookings });
     this._swapViews(view);
   },
 

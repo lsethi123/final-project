@@ -1,4 +1,4 @@
-json.extract! @tour, :title, :description, :id, :destination_id
+json.extract! @tour, :title, :description, :id, :destination_id, :price
 json.provider do
   json.id @tour.provider.id
   json.name @tour.provider.name
