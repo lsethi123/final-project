@@ -95,3 +95,13 @@ Tour.all.each do |tour|
       status: ["requested", "confirmed", "cancelled"].sample )
   end
 end
+
+User.all.each do |u|
+  Tour.all.each do |t|
+    Review.create(
+      tour_id: t.id,
+      user_id: u.id,
+      rating: (1..5).to_a.sample,
+      description: Faker::Lorem.paragraph)
+  end
+end

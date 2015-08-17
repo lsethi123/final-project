@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create, :update, :index, :show]
     resources :images, except: [:edit]
     resources :users, only: [:show]
+    resources :reviews, only: [:show, :create]
     post 'bookings/:id/cancel' => 'bookings#cancel'
     # get 'destinations/search' => 'destination#search'
   end

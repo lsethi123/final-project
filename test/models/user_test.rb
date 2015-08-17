@@ -8,6 +8,8 @@
 #  session_token   :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  about           :text
+#  name            :string
 #
 
 require 'test_helper'

@@ -8,6 +8,8 @@
 #  session_token   :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  about           :text
+#  name            :string
 #
 
 class User < ActiveRecord::Base
@@ -15,6 +17,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true}
   has_many :bookings
   has_many :tours, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_one :image, as: :imageable
 
   after_initialize :ensure_session_token

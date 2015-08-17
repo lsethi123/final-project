@@ -1,8 +1,10 @@
 class Api::ToursController < ApplicationController
-# before_action :ensure_logged_in
+before_action :ensure_logged_in, only: [:create]
+
   def show
     @tour = Tour.find(params[:id])
     @images = @tour.images
+    @average = Review.where(tour_id: params[:id]).average('rating')
     render :show
   end
 

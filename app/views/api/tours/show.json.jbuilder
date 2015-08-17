@@ -6,6 +6,12 @@ json.provider do
   json.username @tour.provider.username
 end
 
+json.average_rating @average
+
 json.images @images do |image|
   json.extract! image, :url
+end
+
+json.review @tour.reviews do |review|
+  json.extract! review, :rating, :description, :user_id, :tour_id
 end
