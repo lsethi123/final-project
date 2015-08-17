@@ -8,6 +8,13 @@ Tryable.Models.Tour = Backbone.Model.extend({
     return this._images;
   },
 
+  reviews: function (){
+    if (!this._reviews){
+      this._reviews = new Tryable.Collections.Reviews();
+    }
+    return this._reviews;
+  },
+
   provider: function(){
     if (!this._provider){
       this._provider = new Tryable.Models.User();
@@ -19,6 +26,11 @@ Tryable.Models.Tour = Backbone.Model.extend({
     if (response.images){
       this.images().set(response.images, { parse: true });
       response.images.remove;
+    }
+
+    if (response.reviews){
+      this.reviews().set(response.reviews, { parse: true });
+      response.reviews.remove;
     }
 
     this.provider().set(response.provider, {parse: true});

@@ -12,6 +12,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render );
     this.listenTo(this.model, "sync", this.addPhotos);
     this.listenTo(this.model, "sync", this.addProvider);
+    this.listenTo(this.model, "sync", this.addRatings);
     this.addBookingView();
   },
 
@@ -27,6 +28,11 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
     this.addSubview('.booking-form', subview);
   },
 
+  addRatings: function(){
+    var subview = new Tryable.Views.ReviewsIndex({collection: this.model.reviews() });
+    this.addSubview('.reviews', subview);
+  },
+
   addPhotos: function(){
     this.images = this.model.images();
     var first_img = this.images.at(0);
@@ -35,7 +41,6 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
   },
 
   addHeaderView: function(image){
-    console.log(image);
       var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 1800, height: 1000});
       this.addSubview('.tour-header', subview);
   },

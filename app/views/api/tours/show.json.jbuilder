@@ -12,6 +12,6 @@ json.images @images do |image|
   json.extract! image, :url
 end
 
-json.review @tour.reviews do |review|
+json.reviews @tour.reviews do |review|
   json.extract! review, :rating, :description, :user_id, :tour_id
 end
