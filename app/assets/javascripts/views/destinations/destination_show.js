@@ -1,5 +1,5 @@
 Tryable.Views.DestinationShow = Backbone.CompositeView.extend({
-  className: 'col-md-10 col-md-offset-1',
+  className: 'col-md-12',
   template: JST['destinations/show'],
 
   initialize: function (){

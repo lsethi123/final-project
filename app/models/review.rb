@@ -13,8 +13,6 @@
 
 class Review < ActiveRecord::Base
   validates :user, :tour, :rating, presence: true
-  validates :user_id, uniqueness: { scope: :tour_id,
-    message: "can only review the same tour once" }
   belongs_to :user
   belongs_to :tour
 end

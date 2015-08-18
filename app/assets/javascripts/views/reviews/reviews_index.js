@@ -15,11 +15,16 @@ Tryable.Views.ReviewsIndex = Backbone.CompositeView.extend({
 
   render: function (){
     // debugger;
-    var content = this.template();
+    var content = this.template({tour: this.model});
     this.$el.html(content);
     this.$('.new-rating').raty({
       path: '/assets/'
     });
+    this.$('.average-rating').raty({
+      path: '/assets/'
+    });
+    this.$('.average-rating').raty('score', this.model.escape('average_rating') );
+    this.$('.average-rating').raty('readOnly', true);
     this.attachSubviews();
     return this;
   },
@@ -42,7 +47,8 @@ Tryable.Views.ReviewsIndex = Backbone.CompositeView.extend({
         this.collection.add(review);
       }.bind(this),
       error: function(model, response){
-        this.$el.append(response);
+        var error = response.responseText;
+        this.$('.form-group').addClass('has-error');
       }.bind(this) });
   }
 

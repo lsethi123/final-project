@@ -41,7 +41,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
   },
 
   addHeaderView: function(image){
-      var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 1800, height: 1000});
+      var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 1800, height: 400});
       this.addSubview('.tour-header', subview);
   },
 

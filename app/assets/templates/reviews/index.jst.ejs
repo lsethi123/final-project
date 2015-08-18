@@ -1,7 +1,9 @@
-<h3>Reviews</h3>
+<h3>Reviews (average <%= tour.escape('average_rating')%>): 
+  <div class="average-rating"></div>
+</h3>
   <h4>Add a new review</h4>
     <div class="new-rating"></div>
-    
+
 <form>
   <div class="form-group">
     <textarea name="review[description]" class='form-control' id='description' rows="8" cols="40"></textarea>

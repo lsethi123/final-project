@@ -2,32 +2,36 @@
   <h2 class='tour-title'><%=tour.escape('title')%></h2>
 </div>
 
-<div class="row row-shift">
-  <div class="col-md-8">
+<div class="row row-white">
+  <div class="col-md-3 placeholder"></div>
+
+  <div class="col-md-6">
       <a class='btn btn-default' href="#/destinations/<%=tour.get('destination_id')%>">Back</a>
       <h2>About this tour</h2>
-      <%=tour.escape('description')%>
-      <%=tour.escape('about')%>
+      <p>
+        <%=tour.escape('description')%>
+      </p>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-3">
     <h3>Make a reservation</h4>
     <h4>$<%=tour.escape('price')%></h5>
     <div class="booking-form"></div>
   </div>
 </div>
 
-<div class="row row-shift">
-  <div class="col-md-12 photos-index">
-  </div>
+<div class="row">
+  <div class="col-md-12 photos-index"></div>
 </div>
 
-<div class="row row-shift">
-  <div class="col-md-12 provider">
-  </div>
+<div class="row row-white">
+  <div class="col-md-3 placeholder"></div>
+  <div class="col-md-6 provider"></div>
+    <div class="col-md-3 placeholder"></div>
 </div>
 
-<div class="row row-shift">
-  <div class="col-md-12 reviews">
-  </div>
+<div class="row row-white">
+  <div class="col-md-3 placeholder"></div>
+  <div class="col-md-6 reviews"></div>
+    <div class="col-md-3 placeholder"></div>
 </div>

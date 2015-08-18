@@ -2,7 +2,8 @@ class Api::DestinationsController < ApplicationController
 
   def show
     @place = Destination.find(params[:id])
-    @tours = @place.tours.includes(:images, :provider)
+    @tours = @place.tours.includes(:images, :provider, :reviews)
+    # @tours = @place.tours.includes(:images, :provider).joins(:reviews).group('tour_id').select('average(rating) as average_rating')
     render :show
   end
 
