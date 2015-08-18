@@ -3,7 +3,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
   template: JST['tours/show'],
 
   events: {
-    'click button.submit-booking' : 'confirmBooking'
+    'click button.submit-booking' : 'confirmBooking',
   },
 
   initialize: function (options){
@@ -41,12 +41,12 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
   },
 
   addHeaderView: function(image){
-      var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 1800, height: 400});
+      var subview = new Tryable.Views.ImageItem({model: image, hasModal: false, editable: false, width: 1800, height: 400});
       this.addSubview('.tour-header', subview);
   },
 
   addPhotoView: function(image){
-    var subview = new Tryable.Views.ImageItem({model: image, editable: false, width: 300, height: 200});
+    var subview = new Tryable.Views.ImageItem({model: image, hasModal: true, editable: false, width: 300, height: 200});
     this.addSubview('.photos-index', subview);
   },
 
