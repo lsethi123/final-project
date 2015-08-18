@@ -6,7 +6,8 @@ Tryable.Views.ImageModal = Backbone.View.extend({
     'click .close': 'removeBtn'
   },
 
-  initialize: function () {
+  initialize: function (options) {
+    this.first = options.first
     $(document).on('keyup', this.handleKey.bind(this));
   },
 
@@ -23,17 +24,15 @@ Tryable.Views.ImageModal = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template());
-    var first = true;
     this.collection.each( function (image) {
       var newSlide = $('<div></div>').addClass('item');
-      if (first) {
+      if (this.model.get('url') === image.get('url')) {
         newSlide.addClass('active');
-        first = false;
       }
       var image = $.cloudinary.image(image.escape('url'), {width: 1000, height: 600, crop: 'fill'});
       newSlide.append(image);
       $('.carousel-inner').append(newSlide);
-    });
+    }.bind(this));
     return this;
   },
 
