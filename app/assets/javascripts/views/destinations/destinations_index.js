@@ -8,7 +8,7 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
   initialize: function (){
     this.collection.fetch();
     this.listenTo( this.collection, "sync", this.addAutocomplete );
-    this.backdrop_url = $.cloudinary.image('static/backdrop.jpg', {width: 1500, height: 500, crop: 'fill' } ).attr('src');
+    this.backdrop_url = $.cloudinary.image('static/backdrop.jpg', {width: 1500, height: 500, brightness:-100, crop: 'fill' } ).attr('src');
   },
 
   render: function (){

@@ -26,7 +26,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
 
   addHeaderView: function(){
     var first_img = this.model.images().at(0);
-    var img = $.cloudinary.image(first_img.escape('url'), {width: 1800, height: 400, crop: 'fill'});
+    var img = $.cloudinary.image(first_img.escape('url'), {width: 1800, height: 400, brightness:-60, crop: 'fill'});
     this.$('.tour-header').html(img);
   },
 

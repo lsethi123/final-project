@@ -1,5 +1,11 @@
 <div class="row">
   <div class="col-md-6">
+    <h4>Payment</h4>
+    <p> We do not charge your card until your reservation is confirmed.</p>
+      <button type="button" class='btn btn-large btn-primary'>Book it now</button>
+  </div>
+
+  <div class="col-md-6">
     <h1>Review your order</h1>
     <h4>Tour</h4>
     <%=tour.escape('title')%>
@@ -7,38 +13,6 @@
     <%=tour.escape('price')%>
     <h4>Date:</h4>
     <%=booking.escape('tour_date') %>
-  </div>
-
-  <div class="col-md-6">
-    <h4>Payment Information (dummy)</h4>
-    <form>
-      <div class="input-group">
-        <label for="name">Name</label>
-        <input type="text" class='form-control' id='name' placeholder="<%=Tryable.CURRENT_USER.name%>" %>
-      </div>
-
-      <div class="input-group">
-        <label for="address">Billing Address</label>
-        <input type="text" id='address' class='form-control' value="123 Maple Lane, San Francisco, CA 94105">
-      </div>
-
-      <div class="input-group">
-        <label for="credit">Credit Card Number</label>
-        <input type="number" class='form-control' id='credit' placeholder='000-1111-2222'>
-      </div>
-
-      <div class="input-group">
-        <label for="expiration">Expiration Date</label>
-        <input type="date" class='form-control' id="expiration" value="">
-      </div>
-
-      <div class="input-group">
-        <label for="cvv">CVV</label>
-        <input type="number" class='form-control' id="cvv" value="123">
-      </div>
-
-      <button type="button" class='btn btn-primary'>Confirm</button>
-    </form>
   </div>
 
 </div>
