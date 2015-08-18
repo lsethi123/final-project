@@ -23,6 +23,17 @@ Tryable.Views.ImageModal = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template());
+    var first = true;
+    this.collection.each( function (image) {
+      var newSlide = $('<div></div>').addClass('item');
+      if (first) {
+        newSlide.addClass('active');
+        first = false;
+      }
+      var image = $.cloudinary.image(image.escape('url'), {width: 1000, height: 600, crop: 'fill'});
+      newSlide.append(image);
+      $('.carousel-inner').append(newSlide);
+    });
     return this;
   },
 

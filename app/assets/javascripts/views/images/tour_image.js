@@ -10,7 +10,7 @@ Tryable.Views.TourImage = Backbone.View.extend({
 
   openModal: function(e){
     e.preventDefault();
-    modal = new Tryable.Views.ImageModal({ model: this.model });
+    modal = new Tryable.Views.ImageModal({ model: this.model, collection: this.collection});
     $('body').append(modal.$el);
     modal.render();
   },
