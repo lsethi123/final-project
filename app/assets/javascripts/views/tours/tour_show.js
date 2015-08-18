@@ -10,10 +10,11 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
     this.booking = options.booking;
     this.listenTo(this.collection, "sync", this.render );
     this.listenTo(this.model, "sync", this.render );
-    this.listenTo(this.model, "sync", this.addPhotos);
+    this.listenTo(this.model, "sync", this.addHeaderView);
     this.listenTo(this.model, "sync", this.addProvider);
     this.listenTo(this.model, "sync", this.addRatings);
-    this.addBookingView();
+    this.listenTo(this.model,"sync", this.addBookingView);
+    this.listenTo(this.model, "sync", this.addPhotos);
   },
 
   render: function (){
@@ -21,6 +22,12 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
     this.$el.html(content);
     this.attachSubviews();
     return this;
+  },
+
+  addHeaderView: function(){
+    var first_img = this.model.images().at(0);
+    var img = $.cloudinary.image(first_img.escape('url'), {width: 1800, height: 400, crop: 'fill'});
+    this.$('.tour-header').html(img);
   },
 
   addBookingView: function(){
@@ -34,19 +41,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
   },
 
   addPhotos: function(){
-    this.images = this.model.images();
-    var first_img = this.images.at(0);
-    this.addHeaderView(first_img);
-    this.images.each(this.addPhotoView.bind(this));
-  },
-
-  addHeaderView: function(image){
-      var subview = new Tryable.Views.ImageItem({model: image, hasModal: false, editable: false, width: 1800, height: 400});
-      this.addSubview('.tour-header', subview);
-  },
-
-  addPhotoView: function(image){
-    var subview = new Tryable.Views.ImageItem({model: image, hasModal: true, editable: false, width: 300, height: 200});
+    var subview = new Tryable.Views.TourImages({collection: this.model.images() });
     this.addSubview('.photos-index', subview);
   },
 

@@ -1,4 +1,4 @@
-Tryable.Views.ImageSlide = Backbone.View.extend({
+Tryable.Views.ImageModal = Backbone.View.extend({
   template: JST['images/slide'],
 
   events: {

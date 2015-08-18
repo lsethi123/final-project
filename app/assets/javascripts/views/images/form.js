@@ -20,7 +20,9 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
   },
 
   addPhotoView: function(image){
-    var subview = new Tryable.Views.ImageItem({ model: image, editable: true, width: 500, height: 300});
+    var subview = new Tryable.Views.FormImageItem({
+        model: image,
+        cloudinary_options: {width: 500, height: 300, crop: 'fill'} });
     this.addSubview('.images', subview);
   },
 
@@ -34,7 +36,6 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
 
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function(error, result) {
       result.forEach( function (data){
-        // debugger;
         var image = new Tryable.Models.Image({
             url: data.public_id,
             thumb_url: data.thumbnail_url,
@@ -59,18 +60,19 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
     } else {
       Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
     }
-
   },
 
   addDefaultImg: function(){
     var defaultImg = new Tryable.Models.Image({
       imageable_type: "Tour",
       imageable_id: this.model.escape('id'),
-      url: $.cloudinary.image("static/default_"+ this.model.escape('destination_id')+".jpg").attr('src')
+      url: "static/default_"+ this.model.escape('destination_id')
     });
-    defaultImg.save({}, {success: function(model, response){
-      Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
-    }.bind(this)});
+
+    defaultImg.save( {}, {
+      success: function(){
+        Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
+      }.bind(this)});
   }
 
 });
