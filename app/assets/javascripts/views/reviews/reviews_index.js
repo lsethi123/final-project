@@ -31,15 +31,19 @@ Tryable.Views.ReviewsIndex = Backbone.CompositeView.extend({
 
   submitReview: function (e){
     e.preventDefault();
+
     var formData = this.$('form').serializeJSON();
     var rating = this.$('.new-rating').raty('score');
     var review = new Tryable.Models.Review(formData.review);
     review.set('rating', rating);
     review.set('tour_id', this.model.escape('id'));
-    review.save({}, { success: function(model, response){
-      this.collection.add(review);
-    }.bind(this) })
-
+    review.save({}, {
+      success: function(model, response){
+        this.collection.add(review);
+      }.bind(this),
+      error: function(model, response){
+        this.$el.append(response);
+      }.bind(this) });
   }
 
 });
