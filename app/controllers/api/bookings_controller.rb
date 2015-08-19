@@ -13,7 +13,6 @@ class Api::BookingsController < ApplicationController
       @bookings = []
     end
     render :index
-    # render json: @bookings
   end
 
   def create

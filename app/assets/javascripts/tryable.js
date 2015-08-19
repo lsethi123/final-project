@@ -5,7 +5,6 @@ window.Tryable = {
   Routers: {},
   initialize: function() {
     var places = new Tryable.Collections.Destinations();
-    places.fetch();
 
     var router = new Tryable.Routers.Router({$rootEl: $('.root-div'), places: places});
     Backbone.history.start();

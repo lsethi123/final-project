@@ -11,7 +11,7 @@ Tryable.Models.User = Backbone.Model.extend({
   parse: function (response) {
     if (response.image){
       this.image().set(response.image, { parse: true });
-      response.image.remove;
+      delete response.image;
     }
     return response;
   }

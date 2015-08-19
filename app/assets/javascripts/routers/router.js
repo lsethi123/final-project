@@ -42,7 +42,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
   newTour: function (){
     this.collection.fetch();
     var model = new Tryable.Models.Tour();
-    var view = new Tryable.Views.TourForm({ model: model, places: this.collection }); //
+    var view = new Tryable.Views.TourForm({ places: this.collection }); //
     this._swapViews(view);
   },
 
@@ -62,7 +62,6 @@ Tryable.Routers.Router= Backbone.Router.extend({
 
   showBookings: function(id){
     var view = new Tryable.Views.BookingsIndex({ collection: this.bookings });
-    this.bookings.fetch();
     this._swapViews(view);
   },
 

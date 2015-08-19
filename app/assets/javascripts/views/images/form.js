@@ -2,7 +2,7 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
   template: JST['images/form'],
   events: {
     "click .upload-button" : "upload",
-    'click .done' : "linkPhotosToId"
+    'click .done' : "done"
   },
 
   initialize: function (options){
@@ -51,28 +51,21 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
     });
   },
 
-  linkPhotosToId: function(){
-    this.collection.each( function (photo) {
-      photo.save( {imageable_id: this.model.escape('id')} );
-    }.bind(this) );
-    if (this.collection.length === 0){
-      this.addDefaultImg();
+  done: function(){
+    if (this.collection.length ===0){
+      var defaultImg = new Tryable.Models.Image({
+        imageable_type: "Tour",
+        imageable_id: this.model.escape('id'),
+        url: "static/default_"+ this.model.escape('destination_id')
+      });
+
+      defaultImg.save( {}, {
+        success: function(){
+          Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
+        }.bind(this)});
     } else {
       Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
     }
-  },
-
-  addDefaultImg: function(){
-    var defaultImg = new Tryable.Models.Image({
-      imageable_type: "Tour",
-      imageable_id: this.model.escape('id'),
-      url: "static/default_"+ this.model.escape('destination_id')
-    });
-
-    defaultImg.save( {}, {
-      success: function(){
-        Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
-      }.bind(this)});
   }
 
 });

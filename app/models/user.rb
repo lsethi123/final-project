@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.generate_session_token
+    SecureRandom.urlsafe_base64
+  end
+
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
@@ -41,18 +45,12 @@ class User < ActiveRecord::Base
     self.password_digest = BCrypt::Password.create(password)
   end
 
-  def generate_session_token
-    # TA: Since this is a utility method that doesn't depend on instance state,
-    # I would make it a class method.
-    SecureRandom.urlsafe_base64
-  end
-
   def ensure_session_token
-    self.session_token ||= generate_session_token
+    self.session_token ||= User.generate_session_token
   end
 
   def reset_session_token!
-    self.session_token = generate_session_token
+    self.session_token = User.generate_session_token
     self.save!
   end
 

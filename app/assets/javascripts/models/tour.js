@@ -25,16 +25,16 @@ Tryable.Models.Tour = Backbone.Model.extend({
   parse: function (response) {
     if (response.images){
       this.images().set(response.images, { parse: true });
-      response.images.remove;
+      delete response.images;
     }
 
     if (response.reviews){
       this.reviews().set(response.reviews, { parse: true });
-      response.reviews.remove;
+      delete response.reviews;
     }
 
     this.provider().set(response.provider, {parse: true});
-    response.provider.remove;
+    delete response.provider;
 
     return response;
   }

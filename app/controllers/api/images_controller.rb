@@ -2,12 +2,11 @@ class Api::ImagesController < ApplicationController
   before_action :ensure_logged_in, only: [:create, :update, :destroy]
 
   def create
-    # debugger
     image = Image.new(image_params)
     if image.save
       render json: image
     else
-      render json: {message: 'failure'}, status: 422
+      render json: image.errors.full_messages, status: :uprocessable_entity
     end
   end
 
@@ -20,7 +19,7 @@ class Api::ImagesController < ApplicationController
     if image.update(image_params)
       render json: image
     else
-      render json: image, status: :uprocessable_entity
+      render json: image.errors.full_messages, status: :uprocessable_entity
     end
   end
 

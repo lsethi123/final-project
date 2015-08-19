@@ -19,6 +19,7 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
   },
 
   submit: function(e){
+    debugger;
     var that = this;
     e.preventDefault();
     var formData = this.$el.find('form').serializeJSON();
@@ -27,6 +28,7 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
     this.model.save( {}, {
       success: function (model, response ){
           // that.collection.add(model);
+          debugger;
           Backbone.history.navigate('#/tours/' + response.id + '/photos', { trigger: true });
       },
       error: function (response){
