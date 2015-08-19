@@ -2,15 +2,21 @@ Tryable.Views.NavShow = Backbone.CompositeView.extend({
 
   template: JST['nav_show'],
   events: {
+    'click .login-link' : 'loginPrompt'
     // 'input .search-box' : 'handleInput',
     // 'click .search-name' : 'hideResults'
   },
 
   initialize: function (options){
     this.router = options.router;
+    this.listenTo(this.model, "sync", this.render); // The Loggedin user
     // this.addSearchView();
     // this.collection.fetch();
     // this.listenTo(this.model, "sync", this.render );
+  },
+
+  loginPrompt: function(){
+
   },
 
   render: function (){
