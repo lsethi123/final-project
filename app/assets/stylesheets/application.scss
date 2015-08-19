@@ -28,6 +28,11 @@
   padding:30px;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   background-color: lightgray;
   font-family: 'Titillium Web', sans-serif;
