@@ -7,6 +7,7 @@ Tryable.Views.ImageModal = Backbone.View.extend({
   },
 
   initialize: function (options) {
+    console.log('change');
     this.first = options.first
     $(document).on('keyup', this.handleKey.bind(this));
     $('body').addClass('stop-scrolling');
