@@ -23,7 +23,7 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
     var model = new Tryable.Models.Tour(formData.tour);
     model.save( {}, {
       success: function (model, response ){
-          Backbone.history.navigate('#/tours/' + response.id + '/photos', { trigger: true });
+          Backbone.history.navigate('tours/' + response.id + '/photos', { trigger: true });
       },
       error: function (response){
           console.log("Error callback called");

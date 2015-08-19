@@ -55,7 +55,6 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
     e.preventDefault();
     this.model.save({}, {
       success: function (booking, response){
-        debugger;
         booking.fetch();
         this.collection.add(booking);
         Backbone.history.navigate('bookings', { trigger: true });

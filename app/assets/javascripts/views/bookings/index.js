@@ -18,7 +18,6 @@ Tryable.Views.BookingsIndex = Backbone.CompositeView.extend({
   },
 
   addItemView: function(booking){
-    debugger;
     var subview = new Tryable.Views.BookingsIndexItem({ model: booking });
     this.addSubview('.bookings-index-items', subview);
   },

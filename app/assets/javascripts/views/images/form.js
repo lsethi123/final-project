@@ -61,10 +61,10 @@ Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
 
       defaultImg.save( {}, {
         success: function(){
-          Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
+          Backbone.history.navigate('tours/' + this.model.escape('id'), {trigger: true});
         }.bind(this)});
     } else {
-      Backbone.history.navigate('/tours/' + this.model.escape('id'), {trigger: true});
+      Backbone.history.navigate('tours/' + this.model.escape('id'), {trigger: true});
     }
   }
 
