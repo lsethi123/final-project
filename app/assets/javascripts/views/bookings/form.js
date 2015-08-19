@@ -9,7 +9,6 @@ Tryable.Views.BookingForm = Backbone.View.extend({
 
   render: function (){
     var content = this.template( {tour: this.model });
-
     this.$el.html(content);
     $('.date-picker').datepicker({
     startDate: "Time.now",

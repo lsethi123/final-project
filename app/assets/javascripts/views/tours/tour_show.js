@@ -1,9 +1,7 @@
 Tryable.Views.TourShow = Backbone.CompositeView.extend({
-
   template: JST['tours/show'],
-
   events: {
-    'click button.submit-booking' : 'confirmBooking',
+    'click .submit-booking' : 'confirmBooking'
   },
 
   initialize: function (options){
@@ -53,10 +51,12 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
 
   confirmBooking: function(e){
     e.preventDefault();
-    var formData = this.$el.serializeJSON();
-    this.booking.set('tour_id', this.model.escape('id'));
-    this.booking.set('tour_date', this.$('.date-picker').datepicker('getDate'));
-    Backbone.history.navigate('#bookings/new', {trigger: true});
+    // var formData = this.$el.serializeJSON();
+    var booking = new Tryable.Models.Booking();
+    booking.set('tour_date', this.$('.date-picker').datepicker('getDate'));
+    booking.set('tour_id', this.model.escape('id'));
+    var subview = new Tryable.Views.BookingConfirmation({ model: booking, tour: this.model, collection: this.collection });
+    this.$el.html(subview.render().$el);
   },
 
 });

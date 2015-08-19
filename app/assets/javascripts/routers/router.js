@@ -60,6 +60,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
   },
 
   showBookings: function(id){
+    this.bookings.fetch();
     var view = new Tryable.Views.BookingsIndex({ collection: this.bookings });
     this._swapViews(view);
   },

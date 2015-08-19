@@ -11,13 +11,14 @@ Tryable.Views.BookingsIndex = Backbone.CompositeView.extend({
   },
 
   render: function (){
-    var content = this.template( {bookings: this.collection });
+    var content = this.template();
     this.$el.html(content);
     this.attachSubviews();
     return this;
   },
 
   addItemView: function(booking){
+    debugger;
     var subview = new Tryable.Views.BookingsIndexItem({ model: booking });
     this.addSubview('.bookings-index-items', subview);
   },

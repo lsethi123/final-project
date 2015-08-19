@@ -1,18 +1,70 @@
 <div class="row">
-  <div class="col-md-6">
-    <h4>Payment</h4>
-    <p> We do not charge your card until your reservation is confirmed.</p>
+  <div class="col-md-6 col-md-2-offset">
+    <h2>Payment</h2>
+    <div class="logged-out">
+      <form class='form-horizontal'>
+        <h3>Your information</h3>
+
+    <% if (Tryable.CURRENT_USER === undefined) { %>
+        <div class="form-group">
+          <label>Your email</label>
+          <input type="text" class='form-control' name="user[username]" value="">
+        </div>
+
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" class='form-control' name="user[name]" value="">
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class='form-control' name="user[password]" value="">
+        </div>
+
+    <% } else { %>
+      <div class="logged-out">
+        Email: <%= Tryable.CURRENT_USER.username %>
+        Name: <%= Tryable.CURRENT_USER.name %>
+      </div>
+    <% } %>
+        <h3>Billing information (placeholder)</h3>
+
+        <div class="form-group">
+          <label>Card Number</label>
+          <input type="text" class='form-control' name="name" value="000-111-2222">
+        </div>
+
+        <div class="form-group">
+          <label>Card Expiration</label>
+          <input type="number" class='form-control' name="CVV" value="123">
+        </div>
+
+        <div class="form-group">
+          <label>Postal Code</label>
+          <input type="number" class='form-control' name="zip" value="94105">
+        </div>
+
+      </form>
+    </div>
+
       <button type="button" class='btn btn-large btn-primary'>Book it now</button>
   </div>
 
-  <div class="col-md-6">
-    <h1>Review your order</h1>
-    <h4>Tour</h4>
-    <%=tour.escape('title')%>
-    <h4>Price</h4>
-    <%=tour.escape('price')%>
-    <h4>Date:</h4>
-    <%=booking.escape('tour_date') %>
+  <div class="col-md-3">
+    <div class="order-preview">
+      <div class="order-thumbnail">
+      </div>
+      <h3><%=tour.escape('title')%></h3>
+      <p>
+        with <%=tour.provider().escape('name') %> 
+      </p>
+
+      <h4>Date:</h4>
+      <%=booking.escape('tour_date') %>
+      <h4>Price</h4>
+      <%=tour.escape('price')%>
+    </div>
+
   </div>
 
 </div>
