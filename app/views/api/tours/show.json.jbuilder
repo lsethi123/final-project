@@ -1,5 +1,8 @@
 json.extract! @tour, :title, :description, :id, :destination_id, :price
-json.extract! @tour.provider, :id, :name, :about, :username
+json.provider do
+  json.extract! @tour.provider, :id, :name, :about, :username
+end
+
 json.average_rating @average
 
 json.images @images do |image|

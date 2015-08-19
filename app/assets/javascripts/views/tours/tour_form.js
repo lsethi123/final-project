@@ -7,7 +7,6 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
 
   initialize: function (options){
     this.places = options.places;
-    this.listenTo(this.model, "sync", this.render );
     this.listenTo(this.places, "sync", this.render);
   },
 
@@ -19,16 +18,11 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
   },
 
   submit: function(e){
-    debugger;
-    var that = this;
     e.preventDefault();
     var formData = this.$el.find('form').serializeJSON();
-    this.model.set(formData.tour);
-
-    this.model.save( {}, {
+    var model = new Tryable.Models.Tour(formData.tour);
+    model.save( {}, {
       success: function (model, response ){
-          // that.collection.add(model);
-          debugger;
           Backbone.history.navigate('#/tours/' + response.id + '/photos', { trigger: true });
       },
       error: function (response){

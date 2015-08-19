@@ -9,11 +9,13 @@ before_action :ensure_logged_in, only: [:create]
   end
 
   def create
-    @tour = current_user.tours.new(tour_params)
+    @tour = Tour.new(tour_params)
+    @tour.user_id = current_user.id
+    @images = @tour.images
     if (@tour.save)
       render :show
     else
-      render json: tour.errors.full_messages, status: :unprocessable_entity
+      render json: @tour.errors.full_messages, status: :unprocessable_entity
     end
   end
 

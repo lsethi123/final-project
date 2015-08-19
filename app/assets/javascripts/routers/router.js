@@ -41,7 +41,6 @@ Tryable.Routers.Router= Backbone.Router.extend({
 
   newTour: function (){
     this.collection.fetch();
-    var model = new Tryable.Models.Tour();
     var view = new Tryable.Views.TourForm({ places: this.collection }); //
     this._swapViews(view);
   },
