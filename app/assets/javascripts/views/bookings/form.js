@@ -15,6 +15,8 @@ Tryable.Views.BookingForm = Backbone.View.extend({
     clearBtn: true,
     todayHighlight: true
     });
+    var today = new Date();
+    $('.date-picker').datepicker('setUTCDate', today);
 
     return this;
   },
