@@ -187,8 +187,9 @@ color: white;
 font-size: 70px;
 }
 
-.tour-header img {
-  overflow: hidden;
+.tour-header {
+  min-height: 300px;
+  background-color: gray;
 }
 
 .tour-img {

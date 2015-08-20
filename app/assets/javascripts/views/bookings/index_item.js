@@ -24,10 +24,9 @@ Tryable.Views.BookingsIndexItem = Backbone.View.extend({
       this.model.set("status", "cancelled");
       this.model.save({}, {
         success: function (){
-
+          
         },
         error: function(response){
-
         }
       });
     }

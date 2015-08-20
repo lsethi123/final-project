@@ -26,7 +26,6 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
           this.search(event);
         }.bind(this)
     });
-
     $('#search-places').focus();
   },
 

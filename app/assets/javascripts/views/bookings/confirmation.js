@@ -15,7 +15,10 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
   },
 
   render: function (){
-    var content = this.template( {booking: this.model, tour: this.tour});
+    var numPeople = parseInt(this.model.escape('num_people'));
+    var price = parseInt(this.tour.escape('price'));
+    var totalPrice = numPeople * price;
+    var content = this.template( {booking: this.model, tour: this.tour, totalPrice: totalPrice});
     this.$el.html(content);
     var img_url = this.tour.images().at(0).escape('url');
     var thumb = $.cloudinary.image(img_url, { width: 300, height: 200, crop: 'fill'});
@@ -36,7 +39,6 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
     var that = this;
     var userData = this.$('form').serializeJSON();
     this.current_user.set(userData);
-    // var user = new Tryable.Models.User(userData);
     this.current_user.save({}, {
       success: function(user, response){
         Tryable.CURRENT_USER = {
@@ -61,7 +63,6 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
 
   submitBooking: function(e){
     e.preventDefault();
-    debugger;
     this.model.save({}, {
       success: function (booking, response){
         booking.fetch();
