@@ -33,6 +33,7 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
 
   createUser: function(e){
     e.preventDefault();
+    var that = this;
     var userData = this.$('form').serializeJSON();
     this.current_user.set(userData);
     // var user = new Tryable.Models.User(userData);
@@ -46,9 +47,14 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
 
         this.submitBooking(e);
       }.bind(this),
-
-      error: function(response){
-        debugger;
+      error: function(user, response){
+        that.$('.form-errors').empty();
+        that.$('.form-errors').addClass('alert alert-danger');
+        response.responseJSON.forEach( function(error){
+          var $li = $('<li></li>');
+          $li.html(error);
+          that.$('.form-errors').append($li);
+        });
       }
     });
   },
