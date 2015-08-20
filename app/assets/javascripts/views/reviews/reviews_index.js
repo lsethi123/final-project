@@ -1,8 +1,7 @@
 Tryable.Views.ReviewsIndex = Backbone.CompositeView.extend({
-
   template: JST['reviews/index'],
-
   events: {
+    'click .new-review' : 'showForm',
     'click .submit-review' : 'submitReview'
   },
 
@@ -14,7 +13,6 @@ Tryable.Views.ReviewsIndex = Backbone.CompositeView.extend({
   },
 
   render: function (){
-    // debugger;
     var content = this.template({tour: this.model});
     this.$el.html(content);
     this.$('.new-rating').raty({
@@ -34,22 +32,33 @@ Tryable.Views.ReviewsIndex = Backbone.CompositeView.extend({
     this.addSubview('.reviews', subview);
   },
 
+  showForm: function(e){
+    e.preventDefault();
+    this.$('.new-review').css('display', 'none');
+    this.$('.review-form').css('display', "block");
+  },
+
   submitReview: function (e){
     e.preventDefault();
-
+    var that = this;
     var formData = this.$('form').serializeJSON();
     var rating = this.$('.new-rating').raty('score');
     var review = new Tryable.Models.Review(formData.review);
     review.set('rating', rating);
     review.set('tour_id', this.model.escape('id'));
+
     review.save({}, {
       success: function(model, response){
-        this.collection.add(review);
-      }.bind(this),
+        that.collection.add(review);
+      },
       error: function(model, response){
-        var error = response.responseText;
-        this.$('.form-group').addClass('has-error');
-      }.bind(this) });
-  }
+        that.$('.form-errors').empty();
+        that.$('.form-errors').addClass('alert alert-danger');
+        response.responseJSON.forEach( function(error){
+          var $li = $('<li></li>');
+          $li.html(error);
+          that.$('.form-errors').append($li);
+        }) }});
+    }
 
 });

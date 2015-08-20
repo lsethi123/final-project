@@ -24,6 +24,19 @@
   padding: 0px;
 }
 
+.btn-primary {
+  // background-color: #e73c3e;
+  // border: none;
+}
+
+.row {
+  width: 100%;
+}
+
+.row-first {
+  margin-top: 20px;
+}
+
 .col-md-12 {
   padding:30px;
 }
@@ -34,7 +47,7 @@
 }
 
 body {
-  background-color: lightgray;
+  background-color: #F4F3EE;
   font-family: 'Titillium Web', sans-serif;
 }
 
@@ -80,6 +93,7 @@ a, a:hover {
 .navbar {
   margin:0;
   z-index:50;
+  background-color:white;
 }
 
 //Homepage
@@ -205,6 +219,10 @@ img.tour-img {
   background-color: white;
 }
 
+.bookings-show-view {
+  margin-top:20px;
+}
+
 .table a {
   font-size: 18px;
 }
@@ -220,4 +238,27 @@ img.tour-img {
   margin: 20px;
   padding:20px;
   background-color: white;
+}
+
+.reviews > div {
+  padding: 10px;
+}
+
+.average-rating {
+  display: inline;
+}
+
+.review-form {
+  display: none;
+}
+
+//Tour form
+.tour-form {
+  background-color: white;
+  padding:20px;
+}
+
+.images-form {
+  background-color: white;
+  min-height:500px;
 }

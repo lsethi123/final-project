@@ -1,5 +1,6 @@
 Tryable.Views.ImageUploader = Backbone.CompositeView.extend({
   template: JST['images/form'],
+  className: 'row row-first',
   events: {
     "click .upload-button" : "upload",
     'click .done' : "done"

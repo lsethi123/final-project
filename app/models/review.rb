@@ -12,7 +12,7 @@
 #
 
 class Review < ActiveRecord::Base
-  validates :user, :tour, :rating, presence: true
+  validates :user, :description, :tour, :rating, presence: true
   belongs_to :user
   belongs_to :tour
 end

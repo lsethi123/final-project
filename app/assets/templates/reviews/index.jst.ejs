@@ -1,15 +1,18 @@
-<h3>Reviews (average <%= tour.escape('average_rating')%>): 
+<h3>Reviews (<%= Math.round(tour.escape('average_rating')*10)/10%>/5.0):
   <div class="average-rating"></div>
 </h3>
-  <h4>Add a new review</h4>
+
+<button type="button" class='new-review btn btn-primary'>Leave a Review</button>
+<div class="review-form">
+  <h4>Leave a Review</h4>
+    <div class="form-errors"></div>
     <div class="new-rating"></div>
+  <form>
+    <div class="form-group">
+      <textarea name="review[description]" class='form-control' id='description' rows="8" cols="40"></textarea>
+    </div>
+    <button type="button" class='submit-review btn btn-primary' >Submit</button>
+  </form>
+</div>
 
-<form>
-  <div class="form-group">
-    <textarea name="review[description]" class='form-control' id='description' rows="8" cols="40"></textarea>
-  </div>
-
-  <button type="button" class='submit-review btn btn-primary' >Submit</button>
-
-</form>
 <div class='reviews'></div>

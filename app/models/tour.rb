@@ -13,7 +13,10 @@
 #
 
 class Tour < ActiveRecord::Base
-  validates :title, presence: true
+  validates :title, :provider, :destination, :price, presence: true
+  # validates :title, length: { minimum: 5}
+  # validates :price, value: {minimum: 0}
+
   belongs_to :destination
   belongs_to :provider, {foreign_key: :user_id, class_name: "User"}
   has_many :bookings
