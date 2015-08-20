@@ -17,7 +17,7 @@ Tryable.Views.TourImage = Backbone.View.extend({
 
   render: function (){
     var content = this.template( {image: this.model});
-    var img = $.cloudinary.image(this.model.escape('url'), {width: 300, height: 200, crop: 'fill'});
+    var img = $.cloudinary.image(this.model.escape('url'), {width: 200, height: 150, crop: 'fill'});
     this.$el.html(content);
     this.$('.clickable-img').html(img);
     return this;

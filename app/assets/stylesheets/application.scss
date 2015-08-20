@@ -206,10 +206,6 @@ img.tour-img {
   height:700px;
 }
 
-.tour-images div {
-  float:left;
-}
-
 .clickable-img {
   margin:5px;
 }
@@ -252,6 +248,17 @@ img.tour-img {
   display: none;
 }
 
+.photos-index > div {
+  width: 100%;
+}
+
+.tour-images {
+  text-align: center;
+}
+
+.tour-images > div {
+  display: inline-block;
+}
 //Tour form
 .tour-form {
   background-color: white;
