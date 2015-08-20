@@ -1,6 +1,6 @@
 <% form_action = (type == :new) ? users_url : session_url %>
 <% submit_text = (type == :new) ? "Sign Up" : "Sign In" %>
-
+<%= render 'shared/errors'%>
 <form action="<%=form_action%>" method="post">
   <%= form_auth_token %>
   <div class="form-group">

@@ -10,6 +10,7 @@ Tryable.Views.NavShow = Backbone.CompositeView.extend({
   initialize: function (options){
     this.router = options.router;
     this.listenTo(this.model, "sync", this.render); // The Loggedin user
+    this.addSignUpView();
     // this.addSearchView();
     // this.collection.fetch();
     // this.listenTo(this.model, "sync", this.render );
@@ -22,9 +23,14 @@ Tryable.Views.NavShow = Backbone.CompositeView.extend({
   render: function (){
     var content = this.template();
     this.$el.html(content);
-    // this.attachSubviews();
+    this.attachSubviews();
     return this;
   },
+
+  addSignUpView: function(){
+    var subview = new Tryable.Views.NewUser({ current_user: this.model });
+    this.addSubview('.modal-container', subview);
+  }
 
   // addSearchView: function (){
   //   var subview = new Tryable.Views.SearchResults({collection: this.collection});
