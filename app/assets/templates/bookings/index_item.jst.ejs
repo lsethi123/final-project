@@ -2,8 +2,9 @@
       <%= booking.escape('tour_name')%>, <%=booking.escape('tour_city')%>
     </a>
 </td>
-
+<td><%=booking.escape('num_people')%></td>
 <td><%=new Date(booking.escape('tour_date')).toDateString()%></td>
+<td><%=new Date(booking.escape('tour_date')).toTimeString().slice(0,5)%></td>
 <td><%= booking.escape('status') %></td>
 <td>
   <% if (booking.escape('status') !== "cancelled") { %>

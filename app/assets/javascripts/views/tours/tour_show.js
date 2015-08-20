@@ -52,10 +52,14 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
 
   confirmBooking: function(e){
     e.preventDefault();
-    // var formData = this.$el.serializeJSON();
-    var booking = new Tryable.Models.Booking();
-    booking.set('tour_date', this.$('.date-picker').datepicker('getDate'));
-    booking.set('tour_id', this.model.escape('id'));
+    var formData = this.$('form').serializeJSON().booking;
+    var dateObj = this.$('.date-picker').datepicker('getDate');
+    dateObj.setHours(formData.tour_time);
+    dateObj.setMinutes(0);
+    dateObj.setSeconds(0);
+
+    var booking = new Tryable.Models.Booking(formData);
+    booking.set('tour_date', dateObj);
     var subview = new Tryable.Views.BookingConfirmation({
       current_user: this.current_user,
       model: booking,

@@ -61,6 +61,7 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
 
   submitBooking: function(e){
     e.preventDefault();
+    debugger;
     this.model.save({}, {
       success: function (booking, response){
         booking.fetch();

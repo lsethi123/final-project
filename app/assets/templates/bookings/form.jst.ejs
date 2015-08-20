@@ -5,4 +5,18 @@
     <div class="input-group-addon"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></div>
 </div>
 
+<div class="form-group">
+  <label for="num-people">People</label>
+  <input type="number" name="booking[num_people]" class='form-control' value="1">
+</div>
+
+<div class="form-group">
+  <label for="time">Time</label>
+  <select class='form-control' name="booking[tour_time]" value="">
+    <% times.forEach( function (time){ %>
+      <option value="<%=time%>"><%=time%>:00</option>
+    <% }) %>
+  </select>
+</div>
+
 <button type="button btn-primary" class='submit-booking btn btn-primary'>Request Booking</button>

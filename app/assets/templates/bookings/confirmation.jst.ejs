@@ -62,8 +62,15 @@
 
       <h4>Date:</h4>
       <%=booking.escape('tour_date') %>
+      <h4>Time:</h4>
+      <%=booking.escape('tour_time') %>
+      <h4>Number of People:</h4>
+      <%=booking.escape('num_people') %>
       <h4>Price</h4>
       <%=tour.escape('price')%>
+      <h3>Total</h3>
+      <% debugger %>
+      <%=parseInt(tour.escape('price'))*parseInt(tour.escape('num_people'))%>
     </div>
 
   </div>
