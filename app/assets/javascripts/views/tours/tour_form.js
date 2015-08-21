@@ -6,6 +6,7 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
   },
 
   initialize: function (options){
+    this.currentUser = options.currentUser;
     this.places = options.places;
     this.listenTo(this.places, "sync", this.render);
   },
@@ -25,6 +26,7 @@ Tryable.Views.TourForm = Backbone.CompositeView.extend({
     model.save( {}, {
       success: function (model, response ){
           Backbone.history.navigate('tours/' + response.id + '/photos', { trigger: true });
+          that.currentUser.fetch(); // Make navbar refresh to show customer bookings
       },
       error: function (model, response){
         that.$('.form-errors').empty();

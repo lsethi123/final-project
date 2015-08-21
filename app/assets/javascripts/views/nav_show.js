@@ -21,7 +21,7 @@ Tryable.Views.NavShow = Backbone.CompositeView.extend({
   },
 
   render: function (){
-    var content = this.template();
+    var content = this.template({currentUser: this.model });
     this.$el.html(content);
     this.attachSubviews();
     return this;

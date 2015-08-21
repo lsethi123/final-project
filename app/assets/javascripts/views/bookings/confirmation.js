@@ -6,7 +6,7 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
   },
 
   initialize: function (options){
-    this.current_user = options.current_user;
+    this.currentUser = options.currentUser;
     this.tour = options.tour;
     this.listenTo(this.tour, "sync", this.render );
     this.listenTo(this.model, "sync", this.render );
@@ -38,8 +38,8 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
     e.preventDefault();
     var that = this;
     var userData = this.$('form').serializeJSON();
-    this.current_user.set(userData);
-    this.current_user.save({}, {
+    this.currentUser.set(userData);
+    this.currentUser.save({}, {
       success: function(user, response){
         Tryable.CURRENT_USER = {
           username: response.username,

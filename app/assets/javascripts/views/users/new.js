@@ -5,13 +5,13 @@ Tryable.Views.NewUser = Backbone.View.extend({
   },
 
   initialize: function (options){
-    this.current_user = options.current_user;
+    this.currentUser = options.currentUser;
     this.listenTo(this.model, "sync", this.render );
     this.listenTo(this.model, "save", this.render );
   },
 
   render: function (){
-    var content = this.template({user: this.current_user});
+    var content = this.template({user: this.currentUser});
     this.$el.html(content);
     return this;
   },
@@ -19,8 +19,8 @@ Tryable.Views.NewUser = Backbone.View.extend({
   createUser: function(e){
     var that = this;
     var userData = this.$('form').serializeJSON();
-    this.current_user.set(userData);
-    this.current_user.save({}, {
+    this.currentUser.set(userData);
+    this.currentUser.save({}, {
       success: function(user, response){
         Tryable.CURRENT_USER = {
           username: response.username,

@@ -13,7 +13,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
 
   initialize: function(options){
     this.$rootEl = options.$rootEl;
-    this.current_user = options.current_user;
+    this.currentUser = options.currentUser;
     this.collection = options.places;
     this.booking = new Tryable.Models.Booking();
     this.bookings = new Tryable.Collections.Bookings();
@@ -42,7 +42,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
 
   newTour: function (){
     this.collection.fetch();
-    var view = new Tryable.Views.TourForm({ places: this.collection }); //
+    var view = new Tryable.Views.TourForm({ places: this.collection, currentUser: this.currentUser }); //
     this._swapViews(view);
   },
 
@@ -59,7 +59,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
     var view = new Tryable.Views.TourShow({ model: model,
       booking: this.booking,
       collection: this.bookings,
-      current_user:this.current_user });
+      currentUser: this.currentUser });
     this._swapViews(view);
   },
 
@@ -73,7 +73,6 @@ Tryable.Routers.Router= Backbone.Router.extend({
 
   showBookings: function(id){
   var view = new Tryable.Views.BookingsIndex({ collection: this.bookings });
-  // this.bookings.fetch();
   this._swapViews(view);
   },
 

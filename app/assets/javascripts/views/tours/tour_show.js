@@ -5,7 +5,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
   },
 
   initialize: function (options){
-    this.current_user = options.current_user;
+    this.currentUser = options.currentUser;
     this.booking = options.booking;
     this.listenTo(this.collection, "sync", this.render );
     this.listenTo(this.model, "sync", this.render );
@@ -63,7 +63,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
     var booking = new Tryable.Models.Booking(formData);
     booking.set('tour_date', dateObj);
     var subview = new Tryable.Views.BookingConfirmation({
-      current_user: this.current_user,
+      currentUser: this.currentUser,
       model: booking,
       tour: this.model,
       collection: this.collection });
