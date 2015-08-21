@@ -1,7 +1,6 @@
 Tryable.Views.UserShow = Backbone.View.extend({
-
   template: JST['users/show'],
-  className: 'media',
+  className: 'row',
 
   initialize: function (){
     this.listenTo(this.model, "sync", this.render );

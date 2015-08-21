@@ -22,7 +22,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
   showUser: function(id){
     var user = new Tryable.Models.User({id: id});
     user.fetch();
-    var view = new Tryable.Views.UserShow({ model: user });
+    var view = new Tryable.Views.UserProfile({ model: user });
     this._swapViews(view);
   },
 

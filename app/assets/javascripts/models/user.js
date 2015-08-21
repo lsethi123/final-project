@@ -8,11 +8,24 @@ Tryable.Models.User = Backbone.Model.extend({
     return this._image;
   },
 
+  tours: function(){
+    if (!this._tours){
+      this._tours = new Tryable.Collections.Tours();
+    }
+    return this._tours;
+  },
+
   parse: function (response) {
     if (response.image){
       this.image().set(response.image, { parse: true });
       delete response.image;
     }
+
+    if (response.tours){
+      this.tours().set(response.tours, { parse: true });
+      delete response.tours;
+    }
     return response;
   }
+
 });

@@ -8,6 +8,11 @@ before_action :ensure_logged_in, only: [:create]
     render :show
   end
 
+  def index
+    @tours = Tour.all
+    render :index
+  end
+
   def create
     @tour = Tour.new(tour_params)
     @tour.user_id = current_user.id

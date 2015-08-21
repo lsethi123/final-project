@@ -4,3 +4,6 @@ json.image do
   json.imageable_id @user.id
   json.imageable_type 'User'
 end
+json.tours @user.tours do |tour|
+  json.extract! tour, :id, :title, :price
+end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :destinations, only: [:show, :index]
-    resources :tours, only: [:show, :create]
+    resources :tours, only: [:show, :create, :index]
     resources :bookings, only: [:create, :update, :index, :show]
     resources :images, except: [:edit]
     resources :users, only: [:show, :create]
@@ -13,7 +13,5 @@ Rails.application.routes.draw do
     post 'bookings/:id/cancel' => 'bookings#cancel'
     # get 'destinations/search' => 'destination#search'
   end
-
-
 
 end
