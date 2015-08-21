@@ -2,6 +2,10 @@ Tryable.Views.TourUserItem = Backbone.View.extend({
   template: JST['tours/tour_user_item'],
   tagName: 'tr',
 
+  events: {
+    'click button' : 'deleteTour'
+  },
+
   initialize: function (){
     this.listenTo(this.model, "sync", this.render );
   },
@@ -16,6 +20,22 @@ Tryable.Views.TourUserItem = Backbone.View.extend({
     this.$el.html(content);
     this.$el.find('.img-thumb').html(img);
     return this;
+  },
+
+  deleteTour: function(e){
+    e.preventDefault();
+    var that = this;
+    var r = confirm('Delete the tour?');
+    if (r) {
+      this.model.destroy({
+        success: function (){
+          that.remove();
+        },
+        error: function(response){
+          // Allow error, users prevented from seeing button on front end
+        }
+      });
+    }
 
   }
 

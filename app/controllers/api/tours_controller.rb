@@ -1,5 +1,6 @@
 class Api::ToursController < ApplicationController
 before_action :ensure_logged_in, only: [:create]
+before_action :ensure_owner, only: [:destroy]
 
   def show
     @tour = Tour.find(params[:id])
@@ -19,6 +20,15 @@ before_action :ensure_logged_in, only: [:create]
     @images = @tour.images
     if (@tour.save)
       render :show
+    else
+      render json: @tour.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @tour = Tour.find(params[:id])
+    if (@tour.destroy)
+      render json: @tour
     else
       render json: @tour.errors.full_messages, status: :unprocessable_entity
     end

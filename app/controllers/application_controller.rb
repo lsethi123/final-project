@@ -27,8 +27,14 @@ class ApplicationController < ActionController::Base
 
   def ensure_logged_in
     unless logged_in?
-      flash[:errors]=["Must be logged in"]
-      render json: {message: "Not logged in"}, status: 401
+      render json: {message: "Must be logged in"}, status: 401
+    end
+  end
+
+  def ensure_owner
+    tour = Tour.find(params[:id])
+    unless tour.provider == current_user
+      render json: {message: "Can't delete or modify other peoples tours"}, status: 401
     end
   end
 
