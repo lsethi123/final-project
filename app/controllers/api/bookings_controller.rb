@@ -15,6 +15,16 @@ class Api::BookingsController < ApplicationController
     render :index
   end
 
+  def index_booking_admin
+    if logged_in?
+      @bookings = Booking.includes({:tour=>:destination})
+        .where(:tours => {user_id: current_user.id})
+      render :index
+    else
+      render json: {message: "Must be logged in"}, status: 401
+    end
+  end
+
   def create
     booking = Booking.new(booking_params)
     booking.user_id = current_user.id

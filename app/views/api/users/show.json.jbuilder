@@ -10,3 +10,9 @@ json.tours @user.tours do |tour|
     json.extract! image, :url
   end
 end
+
+# json.bookings @user.tours do |tour|
+#   json.bookings tour.bookings do |booking|
+#     json.extract! booking, :tour_date, :status, :id, :user_id, :num_people
+#   end
+# end

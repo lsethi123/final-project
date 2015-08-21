@@ -6,6 +6,7 @@ Tryable.Routers.Router= Backbone.Router.extend({
     'tours/new' : 'newTour',
     'tours/:id/photos' : 'addPhotos',
     'tours/:id' :'showTour',
+    'bookings/admin' : 'showAdmin',
     'bookings' : 'showBookings',
     'users/:id' : 'showUser'
   },
@@ -62,10 +63,18 @@ Tryable.Routers.Router= Backbone.Router.extend({
     this._swapViews(view);
   },
 
-  showBookings: function(id){
-    var view = new Tryable.Views.BookingsIndex({ collection: this.bookings });
-    // this.bookings.fetch();
+  showAdmin: function(){
+    var myCustomerBookings = new Tryable.Collections.Bookings();
+    myCustomerBookings.url = '/api/bookings/admin';
+    myCustomerBookings.fetch();
+    var view = new Tryable.Views.BookingsIndex({ collection: myCustomerBookings });
     this._swapViews(view);
+  },
+
+  showBookings: function(id){
+  var view = new Tryable.Views.BookingsIndex({ collection: this.bookings });
+  // this.bookings.fetch();
+  this._swapViews(view);
   },
 
   _swapViews: function (view){

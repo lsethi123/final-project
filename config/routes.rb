@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
+        get 'bookings/admin' =>'bookings#index_booking_admin'
     resources :destinations, only: [:show, :index]
     resources :tours, only: [:show, :create, :index, :destroy]
     resources :bookings, only: [:create, :update, :index, :show]
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :create]
     resources :reviews, only: [:show, :create]
     post 'bookings/:id/cancel' => 'bookings#cancel'
+
     # get 'destinations/search' => 'destination#search'
   end
 

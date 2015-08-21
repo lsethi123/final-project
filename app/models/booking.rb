@@ -17,5 +17,6 @@ class Booking < ActiveRecord::Base
   validates :status, inclusion: { in: STATUSES }
 
   belongs_to :tour
+  has_one :provider, through: :tour, source: :provider
   belongs_to :user
 end
