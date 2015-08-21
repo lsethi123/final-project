@@ -7,14 +7,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$dark-turquoise: #477E84;
+$silvery: #F4F3EE;
+
 // General
 .root-div {
   padding: 0px;
+  // position: absolute;
+  // top: 0;
+  height: 500px;
 }
 
-.btn-primary {
-  // background-color: #e73c3e;
-  // border: none;
+.centered-header {
+  text-align: center;
 }
 
 .row {
