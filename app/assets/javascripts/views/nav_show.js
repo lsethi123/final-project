@@ -1,5 +1,5 @@
 Tryable.Views.NavShow = Backbone.CompositeView.extend({
-
+  className: 'nav-container',
   template: JST['nav_show'],
   events: {
     'click .login-link' : 'loginPrompt'

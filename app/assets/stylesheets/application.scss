@@ -47,6 +47,9 @@ $silvery: #F4F3EE;
 body {
   background-color: #F4F3EE;
   font-family: 'Titillium Web', sans-serif;
+  max-width: 1200px;
+  min-width: 600px;
+  margin: auto;
 }
 
 p {
