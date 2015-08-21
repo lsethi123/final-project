@@ -18,6 +18,7 @@
 //= require cloudinary
 //= require serialize_json
 //= require backbone
+//= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree ./utils
 //= require tryable
 //= require_tree ../templates

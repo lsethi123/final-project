@@ -56,16 +56,13 @@ Tryable.Views.BookingsIndexItem = Backbone.View.extend({
 
   deny: function(e){
     e.preventDefault();
-    var r = confirm('Deny this tour?');
+    var r = confirm('Approve the tour?');
     if (r) {
-      this.model.set('status', "denied");
-      debugger;
-      this.model.save({'status': "denied"}, {
-        patch: true,
+      this.model.set("status", "approved");
+      this.model.save({}, {
         success: function (){
         },
-        error: function(model, response){
-          debugger;
+        error: function(response){
         }
       });
     }

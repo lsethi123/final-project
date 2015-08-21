@@ -12,7 +12,7 @@
 #
 
 class Booking < ActiveRecord::Base
-  STATUSES = ["requested", "confirmed", "cancelled"]
+  STATUSES = ["requested", "approved", "cancelled", "denied"]
   validates :tour, :user, presence: true
   validates :status, inclusion: { in: STATUSES }
 

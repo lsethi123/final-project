@@ -9,11 +9,16 @@
 <td><%= booking.escape('status') %></td>
 
 <% if (isAdmin) { %>
-  <td><button type="button" class='btn btn-primary approve-btn'>Approve</button></td>
-  <td><button type="button" class='btn btn-warning deny-btn'>Deny</button></td>
+  <% if ( booking.escape('status') === 'requested' ){ %>
+    <td><button type="button" class='btn btn-primary approve-btn'>Approve</button></td>
+    <td><button type="button" class='btn btn-warning deny-btn'>Deny</button></td>
+  <% } else { %>
+    <td></td>
+    <td></td>
+  <% } %>
 <% } else { %>
 <td>
-  <% if (booking.escape('status') !== "cancelled") { %>
+  <% if ( booking.escape('status') !== "cancelled" ){ %>
     <button type="button" class="cancel-btn btn btn-danger" >Cancel</button>
   <% } %>
 </td>
