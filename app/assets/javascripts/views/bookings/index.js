@@ -7,7 +7,7 @@ Tryable.Views.BookingsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", this.render );
     this.collection.each(this.addItemView.bind(this));
     this.listenTo(this.collection, "add", this.addItemView);
-    this.listenTo(this.collection, "remove", this.removePhotoView);
+    this.listenTo(this.collection, "remove", this.removeItemView);
   },
 
   render: function (){

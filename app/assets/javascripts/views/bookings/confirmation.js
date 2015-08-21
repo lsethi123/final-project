@@ -63,14 +63,14 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
 
   submitBooking: function(e){
     e.preventDefault();
+    var that = this;
     this.model.save({}, {
       success: function (booking, response){
         booking.fetch();
-        this.collection.add(booking);
+        that.collection.add(booking);
         Backbone.history.navigate('bookings', { trigger: true });
-      }.bind(this),
+      },
       error: function (response){
-          console.log("Error callback called");
           Backbone.history.navigate('', {trigger: true});
         }
      } );

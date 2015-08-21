@@ -14,12 +14,6 @@ json.images @images do |image|
   json.extract! image, :url
 end
 
-if (@images.length == 0)
-  json.images do
-    json.url '/static/default_1.jpg'
-  end
-end
-
 json.reviews @tour.reviews do |review|
   json.extract! review, :rating, :description, :user_id, :tour_id
 end
