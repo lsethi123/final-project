@@ -24,8 +24,12 @@
 
     <% } else { %>
       <div class="logged-out">
-        Email: <%= Tryable.CURRENT_USER.username %>
-        Name: <%= Tryable.CURRENT_USER.name %>
+        <p>
+          Email: <%= Tryable.CURRENT_USER.username %>
+          <br/>
+          Name: <%= Tryable.CURRENT_USER.name %>
+        </p>
+
       </div>
     <% } %>
         <h3>Billing information (placeholder)</h3>

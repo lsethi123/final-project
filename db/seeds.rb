@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #USERS
-usernames = %w(lisa joe demo)
+usernames = %w(lisa@gmail.com joe@hotmail.com demo@gmail.com)
 usernames.each do |username|
   User.create(
     username: username,
