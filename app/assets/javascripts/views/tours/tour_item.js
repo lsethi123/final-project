@@ -12,8 +12,10 @@ Tryable.Views.TourItem = Backbone.View.extend({
     var img;
     if (this.model.images().length > 0 ){
       var imgFirst = this.model.images().models[0];
-      img = $.cloudinary.image( imgFirst.escape('url'), {width: 250, height: 200, crop: 'fill' } );
+      img = $.cloudinary.image( imgFirst.escape('url'), {width: 250, height: 200, crop: 'fill' } );;
+      img.addClass('grow');
     }
+
     this.$el.html(content);
     // this.renderRating();
     this.$el.find('.thumbnail').html(img);

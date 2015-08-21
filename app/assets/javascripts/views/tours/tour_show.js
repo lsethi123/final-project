@@ -27,7 +27,7 @@ Tryable.Views.TourShow = Backbone.CompositeView.extend({
     if ( this.model.images().length > 0 ){
       var first_img = this.model.images().at(0);
       var img = $.cloudinary.image(first_img.escape('url'), {width: 1200, height: 400, brightness:-60, crop: 'fill'});
-      this.$('.tour-header').html(img);
+      this.$('.tour-header').prepend(img);
     }
   },
 

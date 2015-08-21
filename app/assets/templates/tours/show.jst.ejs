@@ -1,18 +1,18 @@
-<div class="row tour-header">
-</div>
+<div class="tour-header">
   <div class="tour-title">
       <h3><%=tour.destination().escape('name')%></h3>
       <h2><%=tour.escape('title')%></h2>
       <p>With <%=tour.provider().escape('name')%></p>
   </div>
+</div>
 
-<div class="row row-white">
+<div class="row div-white">
   <div class="col-md-6 col-md-offset-3">
       <a class='btn btn-default' href="#destinations/<%=tour.get('destination_id')%>">Back</a>
       <p><%=tour.escape('description')%></p>
   </div>
 
-  <div class="col-md-3">
+  <div class="row col-md-3">
     <h3>Make a reservation</h4>
     <h4>$<%=tour.escape('price')%></h5>
     <div class="booking-form"></div>
@@ -23,10 +23,10 @@
   <div class="col-md-8 photos-index"></div>
 </div>
 
-<div class="row row-white">
+<div class="row div-white">
   <div class="col-md-6 col-md-offset-3 provider"></div>
 </div>
 
-<div class="row row-white">
+<div class="row div-white">
   <div class="col-md-6 col-md-offset-3 reviews"></div>
 </div>

@@ -8,13 +8,13 @@
 @import "bootstrap";
 
 $dark-turquoise: #477E84;
+$light-turquoise: #54949B;
 $silvery: #F4F3EE;
+$khaki: #eae8e1;
 
 // General
 .root-div {
   padding: 0px;
-  // position: absolute;
-  // top: 0;
   height: 500px;
 }
 
@@ -45,7 +45,7 @@ $silvery: #F4F3EE;
 }
 
 body {
-  background-color: #F4F3EE;
+  background-color: #eae8e1;
   font-family: 'Titillium Web', sans-serif;
   max-width: 1200px;
   min-width: 600px;
@@ -68,10 +68,7 @@ a, a:hover {
 
 .row {
     display: table;
-}
-
-.row-white {
-  background-color:white;
+    margin: 0;
 }
 
 [class*="col-"] {
@@ -96,7 +93,6 @@ a, a:hover {
   border: 1px solid;
   border-radius: 5px;
 }
-
 
 //Tour form
 .tour-form {

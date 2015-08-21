@@ -3,10 +3,6 @@ Tryable.Views.BookingsIndex = Backbone.CompositeView.extend({
   template: JST['bookings/index'],
 
   initialize: function (){
-    // this.collection = this.collection.where({status: "confirmed"});
-    // this.cancelledTours = _.where(this.collection, a{status: "confirmed"});
-    // this.collection = new Tryable.Collections.Bookings(this.cancelledTours);
-    // debugger;
     this.listenTo(this.collection, "sync", this.render );
     this.collection.each(this.addItemView.bind(this));
     this.listenTo(this.collection, "add", this.addItemView);
