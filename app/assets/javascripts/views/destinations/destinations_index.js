@@ -16,7 +16,7 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
     this.$el.append(this.backdrop);
     this.$el.find('.jumbotron').attr("style", "background-image: url(" + this.backdrop_url + ")");
     this.addAutocomplete();
-    this.addPreviewImgs();
+    // this.addPreviewImgs();
     return this;
   },
 
@@ -30,18 +30,18 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
     $('#search-places').focus();
   },
 
-  addPreviewImgs: function(){
-    var headers = ["New", "Highest Rated", "Editor's Picks", "Coffee", "Foodie"];
-    var i = 1;
-    headers.forEach( function(header) {
-      var img = $.cloudinary.image('static/'+ i, {height: 200, width: 200, crop: 'fill'});
-      var wrapper = $('<div><h4>' + header + '</h4></div>');
-      wrapper.addClass('grow pic');
-      wrapper.append(img);
-      this.$('.preview-imgs').append(wrapper);
-      i ++;
-    }.bind(this));
-  },
+  // addPreviewImgs: function(){
+  //   var headers = ["New", "Highest Rated", "Editor's Picks", "Coffee", "Foodie"];
+  //   var i = 1;
+  //   headers.forEach( function(header) {
+  //     var img = $.cloudinary.image('static/'+ i, {height: 200, width: 200, crop: 'fill'});
+  //     var wrapper = $('<div><h4>' + header + '</h4></div>');
+  //     wrapper.addClass('grow pic');
+  //     wrapper.append(img);
+  //     this.$('.preview-imgs').append(wrapper);
+  //     i ++;
+  //   }.bind(this));
+  // },
 
   search: function(e){
     var placeName = this.$el.find('#search-places').val()

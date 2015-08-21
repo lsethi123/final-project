@@ -4,16 +4,19 @@ Tryable.Views.BookingsIndexItem = Backbone.View.extend({
   tagName: 'tr',
 
   events: {
-    'click .cancel-btn' : 'cancel'
+    'click .cancel-btn' : 'cancel',
+    'click .approve-btn' : 'approve',
+    'click .deny-btn' : 'deny'
   },
 
-  initialize: function (){
+  initialize: function (options){
+    this.isAdmin = options.isAdmin;
     this.listenTo(this.model, "sync", this.render );
     this.listenTo(this.model, "sync", this.onSync );
   },
 
   render: function (){
-    var content = this.template( {booking: this.model});
+    var content = this.template( {booking: this.model, isAdmin: this.isAdmin });
     this.$el.html(content);
     var url = this.model.escape('booking_url');
     // var url = this.model.tour().images[0].url; //ASK-TA - parse not working
@@ -30,13 +33,43 @@ Tryable.Views.BookingsIndexItem = Backbone.View.extend({
       this.model.set("status", "cancelled");
       this.model.save({}, {
         success: function (){
-
         },
         error: function(response){
         }
       });
     }
+  },
 
+  approve: function(e){
+    e.preventDefault();
+    var r = confirm('Approve the tour?');
+    if (r) {
+      this.model.set("status", "approved");
+      this.model.save({}, {
+        success: function (){
+        },
+        error: function(response){
+        }
+      });
+    }
+  },
+
+  deny: function(e){
+    e.preventDefault();
+    var r = confirm('Deny this tour?');
+    if (r) {
+      this.model.set('status', "denied");
+      debugger;
+      this.model.save({'status': "denied"}, {
+        patch: true,
+        success: function (){
+        },
+        error: function(model, response){
+          debugger;
+        }
+      });
+    }
   }
+
 
 });

@@ -4,8 +4,8 @@
     <%=tour.escape('title')%>
   </a>
 </td>
-<td><%=tour.escape('price')%></td>
-<% if (parseInt(tour.escape('user_id'))===Tryable.CURRENT_USER.id) {%>
+<td>$<%=tour.escape('price')%></td>
+<% if (Tryable.CURRENT_USER && parseInt(tour.escape('user_id'))===Tryable.CURRENT_USER.id) {%>
   <td>
     <button type="button" class="cancel-btn btn btn-danger" >Delete</button>
   </td>

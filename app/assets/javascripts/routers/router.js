@@ -67,12 +67,13 @@ Tryable.Routers.Router= Backbone.Router.extend({
     var myCustomerBookings = new Tryable.Collections.Bookings();
     myCustomerBookings.url = '/api/bookings/admin';
     myCustomerBookings.fetch();
-    var view = new Tryable.Views.BookingsIndex({ collection: myCustomerBookings });
+    var view = new Tryable.Views.BookingsAdmin({ collection: myCustomerBookings });
     this._swapViews(view);
   },
 
   showBookings: function(id){
-  var view = new Tryable.Views.BookingsIndex({ collection: this.bookings });
+  this.bookings.fetch();
+  var view = new Tryable.Views.MyBookings({ collection: this.bookings });
   this._swapViews(view);
   },
 

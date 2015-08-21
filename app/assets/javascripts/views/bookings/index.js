@@ -2,7 +2,8 @@ Tryable.Views.BookingsIndex = Backbone.CompositeView.extend({
   className: 'bookings-show-view row',
   template: JST['bookings/index'],
 
-  initialize: function (){
+  initialize: function (options){
+    this.isAdmin = options.isAdmin;
     this.listenTo(this.collection, "sync", this.render );
     this.collection.each(this.addItemView.bind(this));
     this.listenTo(this.collection, "add", this.addItemView);
@@ -17,7 +18,7 @@ Tryable.Views.BookingsIndex = Backbone.CompositeView.extend({
   },
 
   addItemView: function(bking){
-    var subview = new Tryable.Views.BookingsIndexItem({ model: bking });
+    var subview = new Tryable.Views.BookingsIndexItem({ model: bking, isAdmin: this.isAdmin });
     this.addSubview('.bookings-index-items', subview);
   },
 

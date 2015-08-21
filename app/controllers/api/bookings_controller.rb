@@ -38,7 +38,7 @@ class Api::BookingsController < ApplicationController
 
   def update
     booking = Booking.find(params[:id])
-    if (booking_params[:status] == "cancelled") && booking.update(booking_params)
+    if booking.update(booking_params) # (booking_params[:status] == "cancelled") 
       render json: booking
     else
       render json: booking.errors.full_messages, status: :unprocessable_entity
