@@ -1,0 +1,70 @@
+// Navbar styles
+.logout {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  background-color: inherit;
+  border: none;
+  width: inherit;
+}
+
+.navbar {
+  margin:0;
+  z-index:50;
+  background-color:white;
+}
+
+//Homepage
+.jumbotron {
+  text-align: center;
+  height: 500px;
+  p {
+    font-size: 30px;
+    color:white;
+  }
+}
+
+.jumbotron h3 {
+  z-index:30;
+  z-index: 30;
+  font-size: 80px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color:white;
+}
+
+.testimonials {
+  height: 200px;
+  text-align: center;
+}
+
+.search {
+  display: block;
+  margin: auto;
+  width: 50%;
+  background-color: darkslategrey;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+  a {
+    color: white;
+    font-size: 14px;
+  }
+}
+
+.preview h4 {
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+}
+
+// .preview-imgs {
+//   height:300px;
+//   overflow:hidden;
+// }
+
+#search-places {
+  color: black;
+  margin: 10px;
+  width: inherit;
+}

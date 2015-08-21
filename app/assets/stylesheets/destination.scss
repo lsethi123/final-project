@@ -1,0 +1,49 @@
+//Destination Show
+.tour-item {
+  height: 450px;
+  width: 250px;
+  border-radius: 5%;
+  overflow:hidden;
+  background-color: white;
+  float: left;
+  margin: 10px;
+  padding: 0px;
+  padding-bottom: 10px;
+  text-align: center;
+  position: relative;
+  .tour-item-title {
+    font-family: bold;
+    font-weight: 400;
+    color: black;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  p {
+    color: black;
+    padding: 5px;
+    height:150px;
+    overflow:hidden;
+  }
+}
+
+.thumbnail {
+  padding:0;
+  margin:0;
+}
+
+.tour-item:hover {
+  background-color: aliceblue;
+}
+
+.price {
+    left: 20px;
+    top: 20px;
+    position: absolute;
+    background-color: #54949B;
+    font: white;
+    color: white;
+    padding-top: 13px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}

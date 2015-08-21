@@ -1,0 +1,78 @@
+//Tour Show page
+.tour-title {
+top: 25%;
+left: 25%;
+position: absolute;
+z-index: 50;
+border-radius:50%;
+text-align: center;
+color: white;
+  h2 {
+    opacity:1;
+    font-size: 50px;
+  }
+  p, h3 {
+    opacity:1;
+  }
+}
+
+.tour-header {
+  min-height: 300px;
+  background-color: gray;
+}
+
+.tour-img {
+  width: 200px;
+  height: 200px;
+}
+
+img.tour-img {
+  width: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: 0;
+  width: 100%;
+  height:700px;
+}
+
+.clickable-img {
+  margin:5px;
+}
+
+//Tour Show
+.photos-index > div {
+  float: left;
+  padding: 10px;
+  background-color: white;
+}
+
+.order-preview {
+  margin: 20px;
+  padding:20px;
+  background-color: white;
+}
+
+.reviews > div {
+  padding: 10px;
+}
+
+.average-rating {
+  display: inline;
+}
+
+.review-form {
+  display: none;
+}
+
+.photos-index > div {
+  width: 100%;
+}
+
+.tour-images {
+  text-align: center;
+}
+
+.tour-images > div {
+  display: inline-block;
+}

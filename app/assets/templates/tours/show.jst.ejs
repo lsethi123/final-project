@@ -1,17 +1,19 @@
 <div class="row tour-header">
 </div>
-
-  <h2 class='tour-title'><%=tour.escape('title')%></h2>
+  <div class="tour-title">
+      <h3><%=tour.destination().escape('name')%></h3>
+      <h2><%=tour.escape('title')%></h2>
+      <p>
+        With <%=tour.provider().escape('name')%>
+      </p>
+  </div>
 
 <div class="row row-white">
   <div class="col-md-3 placeholder"></div>
 
   <div class="col-md-6">
       <a class='btn btn-default' href="#destinations/<%=tour.get('destination_id')%>">Back</a>
-      <h2>About this tour</h2>
-      <p>
-        <%=tour.escape('description')%>
-      </p>
+      <p><%=tour.escape('description')%></p>
   </div>
 
   <div class="col-md-3">

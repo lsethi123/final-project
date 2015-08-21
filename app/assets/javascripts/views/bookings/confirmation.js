@@ -1,7 +1,6 @@
 Tryable.Views.BookingConfirmation = Backbone.View.extend({
   template: JST['bookings/confirmation'],
   className: 'container',
-
   events: {
     'click button': 'processBooking'
   },
@@ -18,6 +17,7 @@ Tryable.Views.BookingConfirmation = Backbone.View.extend({
     var numPeople = parseInt(this.model.escape('num_people'));
     var price = parseInt(this.tour.escape('price'));
     var totalPrice = numPeople * price;
+
     var content = this.template( {booking: this.model, tour: this.tour, totalPrice: totalPrice});
     this.$el.html(content);
     var img_url = this.tour.images().at(0).escape('url');

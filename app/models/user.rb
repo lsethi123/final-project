@@ -32,6 +32,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def avatar_url
+    gravatar_id = Digest::MD5::hexdigest(self.username).downcase
+    "http://gravatar.com/avatar/#{gravatar_id}?d=mm"
+  end
+
   def self.generate_session_token
     SecureRandom.urlsafe_base64
   end

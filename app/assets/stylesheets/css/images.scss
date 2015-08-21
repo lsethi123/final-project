@@ -1,0 +1,39 @@
+.pic {
+  float: left;
+  height: 300px;
+  width: 300px;
+  margin: 0px;
+  border:0px;
+  padding:0px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+
+  h4 {
+    position: absolute;
+    z-index: 50;
+    top: 20%;
+    left: 20%;
+    font-size: 40px;
+    color: white;
+    text-transform: uppercase;
+  }
+}
+
+/*GROW*/
+.grow img {
+  height: 300px;
+  width: 300px;
+
+
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+
+.grow img:hover {
+  width: 400px;
+  height: 400px;
+}

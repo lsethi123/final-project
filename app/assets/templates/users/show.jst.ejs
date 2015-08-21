@@ -1,5 +1,13 @@
-  <h3>About your host <a href="#/users/<%=user.escape('id')%>">
-      <%=user.escape('name')%> (<%=user.escape('username')%>)
-      </a>
-  </h3>
-  <p><%=user.escape('about')%></p>
+<h3>About your host</h4>
+  <div class="media-left">
+    <a href="#/users/<%=user.escape('id')%>">
+      <img class="media-object" src="<%=user.escape('avatar_url')%>" alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <a href="#/users/<%=user.escape('id')%>">
+        <%=user.escape('name')%>
+      </a></h4>
+        <%=user.escape('about')%>
+  </div>

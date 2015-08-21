@@ -22,6 +22,13 @@ Tryable.Models.Tour = Backbone.Model.extend({
     return this._provider;
   },
 
+  destination: function(){
+    if (!this._destination){
+      this._destination = new Tryable.Models.Destination();
+    }
+    return this._destination;
+  },
+
   parse: function (response) {
     if (response.images){
       this.images().set(response.images, { parse: true });
@@ -34,6 +41,9 @@ Tryable.Models.Tour = Backbone.Model.extend({
     }
 
     this.provider().set(response.provider, {parse: true});
+    delete response.provider;
+
+    this.destination().set(response.destination, {parse: true});
     delete response.provider;
 
     return response;
