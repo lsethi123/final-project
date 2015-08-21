@@ -1,5 +1,6 @@
+<td class='img-thumb'></td>
 <td><a href="#tours/<%=booking.escape('tour_id')%>">
-      <%= booking.escape('tour_name')%>, <%=booking.escape('tour_city')%>
+      <%= booking.tour().escape('title')%>, <%=booking.escape('tour_city')%>
     </a>
 </td>
 <td><%=booking.escape('num_people')%></td>

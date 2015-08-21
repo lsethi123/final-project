@@ -14,6 +14,9 @@ Tryable.Views.BookingsIndexItem = Backbone.View.extend({
   render: function (){
     var content = this.template( {booking: this.model});
     this.$el.html(content);
+    // var url = this.model.tour().attributes.images[0].url; //ASK-TA - parse not working
+    // var img = $.cloudinary.image(url, { width: 100, height: 100, crop: 'fill' });
+    // this.$('.img-thumb').html(img);
     return this;
   },
 
@@ -24,7 +27,7 @@ Tryable.Views.BookingsIndexItem = Backbone.View.extend({
       this.model.set("status", "cancelled");
       this.model.save({}, {
         success: function (){
-          
+
         },
         error: function(response){
         }

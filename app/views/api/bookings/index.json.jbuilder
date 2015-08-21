@@ -1,8 +1,10 @@
-json.array! (@bookings) do |booking|
-  json.id booking.id
-  json.status booking.status
-  json.tour_id booking.tour_id
-  json.tour_name booking.tour.title
-  json.tour_date booking.tour_date
+json.array! @bookings do |booking|
+  json.extract! booking, :id, :status, :tour_id, :tour_date, :num_people
   json.tour_city booking.tour.destination.name
+  json.tour do
+    json.extract! booking.tour, :title
+    json.images booking.tour.images do |image|
+      json.extract! image, :url
+    end
+  end
 end
