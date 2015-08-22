@@ -48,6 +48,10 @@ Tryable.Views.DestinationsIndex = Backbone.CompositeView.extend({
     var place = this.collection.findWhere({name: placeName });
     if (place !== undefined){
       Backbone.history.navigate('destinations/'+ place.escape('id'), {trigger: true} );
+    } else {
+      var searchResult = new Tryable.Models.Destination();
+      searchResult.url = '/api/search/'+ placeName;
+      searchResult.fetch();
     }
   }
 

@@ -14,4 +14,8 @@ class Api::DestinationsController < ApplicationController
     render json: @places
   end
 
+  def search
+    debugger
+  end
+
 end

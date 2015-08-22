@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :create]
     resources :reviews, only: [:show, :create]
     post 'bookings/:id/cancel' => 'bookings#cancel'
+    get 'search/:query' => 'destinations#search'
 
     # get 'destinations/search' => 'destination#search'
   end
